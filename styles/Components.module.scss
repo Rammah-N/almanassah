@@ -1,0 +1,11 @@
+.Btn_plt {
+  padding: 1rem 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 5px;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

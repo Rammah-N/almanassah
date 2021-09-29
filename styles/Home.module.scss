@@ -1,0 +1,111 @@
+@import "./variables.scss";
+.home {
+	&_hero {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: -80px;
+		background: rgb(16, 50, 79);
+		position: relative;
+		z-index: 99;
+		h1 {
+			font-size: 6.2rem;
+			text-align: center;
+			color: $plt-blue;
+			margin-right: -12px;
+			z-index: 99;
+			span {
+				color: #fff;
+			}
+		}
+		div {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: #fff;
+		}
+	}
+	&_updates {
+		margin: 5rem 0;
+	}
+	&_goals {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		margin: 8rem auto;
+		text-align: center;
+		.subtitle {
+			color: #c4c4c4;
+		}
+		.description {
+			color: $plt-blue;
+			font-weight: 600;
+			font-size: 2.4rem;
+			margin-bottom: 2rem;
+			max-width: 68%;
+		}
+		.goals_container {
+			display: flex;
+			justify-content: space-evenly;
+			width: 100%;
+		}
+		&_goal {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			height: 300px;
+			width: 350px;
+			p {
+				font-size: 1.8rem;
+				font-weight: 600;
+				color: $plt-blue;
+				width: 50%;
+			}
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 350px;
+				height: 250px;
+
+			}
+		}
+	}
+
+  &_vision {
+    display: flex;
+    background-color: #204F4E;
+    color: #fff;
+    padding: 5rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    justify-content: space-evenly;
+    h1 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      max-width: 60%;
+      text-align: right;
+    }
+  }
+  &_cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+    p {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  }
+}
