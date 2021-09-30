@@ -19,34 +19,38 @@ function enableScroll() {
 }
 
 const Layout = ({ children }) => {
+	const [iconColor, seticonColor] = useState('#48A470')
 	const [toggled, settoggled] = useState(false);
 	const toggleMenu = () => {
-		const nav = document.getElementsByTagName("nav");
-		settoggled(!toggled);
 		if (!toggled) {
+			settoggled(true);
 			disableScroll();
+			seticonColor('#fff');
 			setTimeout(() => {
 				// To delay changing the color of the Logo and Menu Icon to make it show like it's transitioning
 				document.querySelector("nav").classList.toggle(navStyles.toggled);
 			}, 500);
 		} else {
 			// Here i'm not delaying the transition when the menu's closing.
+			seticonColor('#48A470');
+			settoggled(false);
 			enableScroll();
 			document.querySelector("nav").classList.toggle(navStyles.toggled);
 		}
 	};
 	return (
 		<>
-			<Menu toggled={toggled} />
+			<Menu toggled={toggled} toggleMenu={toggleMenu} />
 			<nav className={navStyles.nav} toggled={toggled}>
-				<NavIcon toggleMenu={toggleMenu} />
+				<NavIcon toggleMenu={toggleMenu} iconColor={iconColor} toggled={toggled}/>
 				<Logo />
 			</nav>
 			{children}
 			<footer className={footerStyles.footer}>
 				<div className={footerStyles.footer_main}>
 					<Logo textColor="#fff" />
-					<Link href="/about">
+					{/* eslint-disable-next-line @next/next/link-passhref */}
+					<Link href="/forum">
 						<Image src="/forum.png" alt="Forum" height="80" width="65" />
 					</Link>
 					<div className={footerStyles.links}>

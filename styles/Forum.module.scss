@@ -1,0 +1,136 @@
+@import "./variables.scss";
+.forum {
+	.hero {
+		width: 100%;
+		height: calc(100vh - 150px);
+		background-color: $fwg-green;
+		display: flex;
+		align-items: center;
+		&_logo {
+			width: 50%;
+			color: $fwg-yellow;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			align-self: stretch;
+			h1 {
+				text-align: center;
+				font-size: 8rem;
+			}
+			div {
+				width: 4px;
+				margin-left: 25px;
+				height: 70%;
+				background-color: $fwg-yellow;
+			}
+		}
+		p {
+			width: 50%;
+			font-size: 3rem;
+			text-align: center;
+			color: #fff;
+			font-weight: 700;
+			margin-left: 5rem;
+		}
+	}
+	.intro {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 8rem 0;
+		align-items: center;
+		.cover {
+			position: relative;
+			display: flex;
+			&_filled {
+				background-color: $fwg-green;
+				color: $fwg-yellow;
+				height: 500px;
+				width: 300px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				h1 {
+					font-size: 7rem;
+					font-weight: 700;
+					transform: rotate(-90deg);
+				}
+			}
+			&_hollow {
+				height: 500px;
+				width: 300px;
+				border: 2px solid $fwg-green;
+				position: absolute;
+				bottom: -30px;
+				left: -30px;
+			}
+		}
+
+		&_info {
+			font-size: 2.8rem;
+			text-align: right;
+			width: 50%;
+		}
+	}
+
+	.activities {
+		display: flex;
+		flex-direction: column;
+		place-content: center;
+		place-items: center;
+		margin: 10rem 0;
+		.activity {
+			display: flex;
+			width: 70%;
+			font-size: 2rem;
+			font-weight: 700;
+			justify-content: space-evenly;
+			margin: 2rem 0;
+			h3 {
+				transition: all 0.3s;
+				&:hover {
+					color: $fwg-green;
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+  .role {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 8rem;
+    &_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+    p {
+      text-align: right;
+      font-size: 2.4rem;
+      line-height: 1.5;
+    }
+    }
+  }
+  .cta {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    p {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-align: right;
+      width: 50%;
+    }
+  }
+
+}
+
+.heading {
+	padding: 1rem 2rem;
+	background-color: $fwg-yellow;
+	font-size: 2rem;
+	font-weight: 700;
+  color: $fwg-green;
+	&:first-of-type {
+		margin-bottom: 5rem;
+	}
+}

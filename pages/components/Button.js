@@ -1,15 +1,15 @@
 import React from "react";
 import styles from '../../styles/Components.module.scss'
-const Button = ({ color, text, bgc='transparent' }) => {
+const Button = ({ color, bgc, children}) => {
 	return (
 		<button
 		className={styles.Btn_plt}
 			style={{
 				color: color,
-				border: `2px solid ${color}`,
+				border: bgc ? 'none': `2px solid ${color}`,
 				backgroundColor: bgc
 			}}>
-			{text}
+			{children}
 		</button>
 	);
 };

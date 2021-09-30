@@ -2,6 +2,7 @@
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import Button from "./components/Button";
+import Link from "next/dist/client/link";
 import { Slider } from "./components/Slider";
 export default function Home() {
 	const data = [
@@ -82,7 +83,9 @@ export default function Home() {
 			{/* CTA Section */}
 			<section className={styles.home_cta}>
 				<p>يمكنك التسجيل الآن للوصول إلى جميع محتويات المنصة</p>
-				<Button color="#10324F" text="سجل الآن" />
+				<Button color="#10324F">
+					<Link href="/register">سجل الآن</Link>
+				</Button>
 			</section>
 		</main>
 	);

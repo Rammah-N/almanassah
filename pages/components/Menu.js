@@ -3,20 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Menu.module.scss";
 import { useState } from "react";
-const Menu = ({ toggled }) => {
+const Menu = ({ toggled, toggleMenu }) => {
 	return (
 		<div className={`${styles.menu} ${toggled ? styles.toggled : ""}`}>
 			<ul className={`${styles.links} ${toggled ? styles.fadeIn : ""}`}>
-				<li>
+				<li onClick={toggleMenu}>
 					<Link href="/">الرئيسية</Link>
 				</li>
-				<li>
+				<li onClick={toggleMenu}>
 					<Link href="/forum">المنتدى</Link>
 				</li>
-				<li>
+				<li onClick={toggleMenu}>
 					<Link href="/dataforchange">بيانات للتغيير</Link>
 				</li>
-				<li>
+				<li onClick={toggleMenu}>
 					<Link href="/spaces">المساحات</Link>
 				</li>
 			</ul>

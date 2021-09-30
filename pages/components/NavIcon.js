@@ -1,46 +1,14 @@
 import styles from "../../styles/Nav.module.scss";
 import { useState } from "react";
-const NavIcon = ({ toggleMenu, toggled }) => {
-	const [iconColor, seticonColor] = useState('#48A470')
-	const toggle = (e) => {
-		if(iconColor === '#48A470') {
-			seticonColor('#fff');
-		} else {
-			seticonColor('#48A470');
-		}
-		switch (e.target.tagName) {
-			case "path":
-				e.target.parentElement.parentElement.classList.toggle(styles.opened);
-				e.target.parentElement.parentElement.setAttribute(
-					"aria-expanded",
-					e.target.classList.contains(styles.opened)
-				);
-				break;
-			case "svg":
-				e.target.parentElement.classList.toggle(styles.opened);
-				e.target.parentElement.setAttribute(
-					"aria-expanded",
-					e.target.classList.contains(styles.opened)
-				);
-				break;
-			default:
-				e.target.classList.toggle(styles.opened);
-				e.target.setAttribute(
-					"aria-expanded",
-					e.target.classList.contains(styles.opened)
-				);
-		}
-	};
+const NavIcon = ({ toggleMenu, toggled, iconColor }) => {
 	const style = {
-		stroke: iconColor
+		stroke: iconColor,
 	};
 	return (
 		<button
-			className={styles.menu}
-			onClick={(e) => {
-				toggle(e);
-				toggleMenu();
-			}}
+			className={`${styles.menu} ${toggled ? styles.opened : ""}`}
+			onClick={toggleMenu}
+			aria-expanded={toggled ? true : false}
 			aria-label="Main Menu">
 			<svg width="50" height="50" viewBox="0 0 100 100">
 				<path

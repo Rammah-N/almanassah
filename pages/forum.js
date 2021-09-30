@@ -1,9 +1,10 @@
 import styles from "../styles/Forum.module.scss";
 import Image from "next/dist/client/image";
 import Button from "./components/Button";
-const about = () => {
+import Link from "next/link";
+const Forum = () => {
 	return (
-		<main className={styles.about}>
+		<main className={styles.forum}>
 			<section className={styles.hero}>
 				<p>
 					المنتدى هو جهة غير رسمية للتعاون فيما بين ممثلي/ات المجتمع المدني
@@ -11,26 +12,30 @@ const about = () => {
 					لا عنفي وشامل ومتكامل بيقادة سودانية.
 				</p>
 				<div className={styles.hero_logo}>
-					<h1>المنتدى التفاكري للسلام</h1>
+					<h1>
+						المنتدى
+						<br /> التفاكري <br />
+						للسلام
+					</h1>
 					<div></div>
 				</div>
 			</section>
 			<section className={styles.intro}>
 				<div className={styles.cover}>
+					<div className={styles.cover_hollow}></div>
 					<div className={styles.cover_filled}>
 						<h1>خلفية</h1>
 					</div>
-					<div className={styles.cover_hollow}></div>
 				</div>
 				<div className={styles.intro_info}>
 					<p>
 						المنتدى التفاكري هو مساحة لممثلي/ات المجتمع المدني في السودان من
 						كلتا المناطق التي تحت سيطرة الحكومه والمناطق تحت سيطرة الحركات
-						المسلحة, بالإضافة لممثلي/ات اجانب ذوي صلة.
+						المسلحة, بالإضافة لممثلي/ات اجانب ذوي صلة
 					</p>
 					<p>
 						هذه المساحه هي للإجتماع ومناقشة الأولويات الراهنة فيها يتعلق بالتحول
-						السلمي, في الأوقات الراهنة والمصيرية – بعد تغيير النظام.{" "}
+						السلمي, في الأوقات الراهنة والمصيرية – بعد تغيير النظام{" "}
 					</p>
 				</div>
 			</section>
@@ -72,10 +77,16 @@ const about = () => {
 				</div>
 			</section>
 			<section className={styles.cta}>
-				<Button />
+				<Button text="إقرأ المزيد" color="#FCB03F" bgc="#033F38">
+					<Link href="/reports">إقرأ المزيد</Link>
+				</Button>
+				<p>
+					يمكنك الوصول للمحتوى والتقارير والمستندات المتعلقة بالمنتدى التفاكري
+					للسلام من هنا
+				</p>
 			</section>
 		</main>
 	);
 };
 
-export default about;
+export default Forum;
