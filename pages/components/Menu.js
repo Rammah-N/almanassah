@@ -45,8 +45,15 @@ const Menu = ({ toggled, toggleMenu }) => {
 					/>
 				</div>
 				<div className={styles.users}>
-					<Link href="/register">حساب جديد</Link>
-					<Link href="/signin">تسجيل دخول</Link>
+					<li onClick={toggleMenu}>
+						<Link href="/register">حساب جديد</Link>
+					</li>
+					<li onClick={toggleMenu}>
+						<Link href="/signin">تسجيل دخول</Link>
+					</li>
+					<li onClick={toggleMenu}>
+						<Link href="/contact">تواصل معنا</Link>
+					</li>
 				</div>
 			</div>
 		</div>

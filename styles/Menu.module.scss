@@ -29,7 +29,7 @@
 		li {
 			transition: opacity 0.2s;
 			margin: 2rem 0;
-
+			transition: all 0.2s;
 			&:hover {
 				transform: scale(1.05);
 				color: $plt-green;
@@ -53,6 +53,7 @@
 				margin: 0 2rem;
 				cursor: pointer;
 				transition: transform 0.2s;
+
 				&:hover {
 					transform: scale(1.2);
 				}
@@ -62,16 +63,20 @@
 			font-size: 2rem;
 			color: #fff;
 			margin-top: 2rem;
-			a {
-				transition: all 0.2s;
-				margin: 0 1rem;
-				&:hover {
-					color: $plt-green;
+			display: flex;
+			li {
+				text-decoration: none;
+				list-style: none;
+				a {
+					transition: all 0.2s;
+					margin: 0 1rem;
+					&:hover {
+						color: $plt-green;
+					}
 				}
 			}
 		}
 	}
-
 }
 .toggled {
 	opacity: 1;

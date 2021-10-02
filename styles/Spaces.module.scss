@@ -1,0 +1,31 @@
+@import './variables.scss';
+.spaces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .title {
+    margin-top: 5rem;
+    font-size: 4rem;
+    color: $fwg-green;
+    font-weight: 700;
+    text-align: center;
+  }
+  .description {
+    max-width: 50%;
+    font-size: 2rem;
+    font-weight: 300;
+    color: $fwg-green;
+    margin-top: 1.2rem;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+  .container {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

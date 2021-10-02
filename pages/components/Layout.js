@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
 			<Menu toggled={toggled} toggleMenu={toggleMenu} />
 			<nav className={navStyles.nav} toggled={toggled}>
 				<NavIcon toggleMenu={toggleMenu} iconColor={iconColor} toggled={toggled}/>
-				<Logo />
+				<Logo above />
 			</nav>
 			{children}
 			<footer className={footerStyles.footer}>
