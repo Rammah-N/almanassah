@@ -1,0 +1,210 @@
+@import "./variables.scss";
+.main {
+	.hero {
+		display: flex;
+		justify-content: space-between;
+		height: calc(100vh - 100px);
+		&_chart {
+			width: 50%;
+			background-color: $fwg-green;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.chart {
+				background-color: rgba(255, 255, 255, 0.2);
+				border-radius: 5px;
+				text-align: right;
+				padding: 3rem;
+				width: 70%;
+				color: #fff;
+				span {
+					font-size: 1.4rem;
+				}
+				h1 {
+					font-size: 3rem;
+					color: $fwg-yellow;
+				}
+				p {
+					color: #fff;
+					font-size: 2rem;
+					direction: rtl;
+				}
+				&_figure {
+					display: grid;
+					grid-auto-flow: column;
+					margin-top: 3rem;
+					align-items: flex-end;
+					gap: 10px;
+					width: 100%;
+					div {
+						width: 50px;
+						background-color: #fff;
+						border-radius: 5px;
+						&:nth-child(1) {
+							height: 70px;
+						}
+						&:nth-child(2) {
+							height: 90px;
+						}
+						&:nth-child(3) {
+							height: 60px;
+						}
+						&:nth-child(4) {
+							height: 150px;
+							background-color: $fwg-yellow;
+						}
+						&:nth-child(5) {
+							height: 80px;
+						}
+						&:nth-child(6) {
+							height: 110px;
+						}
+						&:nth-child(7) {
+							height: 60px;
+						}
+					}
+				}
+			}
+		}
+
+		&_info {
+			text-align: right;
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding-right: 6rem;
+			h1 {
+				font-size: 4rem;
+				color: $fwg-green;
+				margin-bottom: 1rem;
+			}
+			p {
+				font-size: 2rem;
+				padding-left: 5rem;
+			}
+			button {
+				border: none;
+				padding: 1rem 3rem;
+				background-color: $fwg-yellow;
+				font-size: 2rem;
+				font-weight: 500;
+				color: $black;
+				border-radius: 5px;
+				margin-top: 3rem;
+				align-self: flex-end;
+				cursor: pointer;
+				transition: transform 0.2s;
+				&:hover {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	.features {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+    margin-top: 10rem;
+		h1 {
+			font-size: 4rem;
+			color: $fwg-green;
+		}
+		.container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+			justify-content: space-evenly;
+			align-content: center;
+			width: 100%;
+			margin-top: 5rem;
+			gap: 2rem;
+			.feature {
+				background-color: #fff;
+				box-shadow: -10px 10px 19px 0px rgba(0, 0, 0, 0.21);
+				-webkit-box-shadow: -10px 10px 19px 0px rgba(0, 0, 0, 0.21);
+				-moz-box-shadow: -10px 10px 19px 0px rgba(0, 0, 0, 0.21);
+				padding: 2rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				width: 100%;
+				border-radius: 5px;
+				h2 {
+					font-size: 2.5rem;
+					font-weight: 500;
+				}
+				p {
+					font-size: 2rem;
+					margin: 1rem 0 3rem 0;
+				}
+			}
+		}
+	}
+  .stats {
+    display: flex;
+    background-color: $fwg-yellow;
+    color: $black;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem;
+    height: 300px;
+    margin: 15rem 0 8rem 0;
+    text-align: right;
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% / 3);
+      direction: rtl;
+      &_info {
+        h2 {
+          font-size: 2rem;
+          font-weight: 300;
+        }
+        h1 {
+          font-size: 4rem;
+          color: $fwg-green;
+        }
+      }
+    }
+    i {
+      width: 5px;
+      height: 150px;
+      background-color: #fff;
+      margin: 0 7rem 0 0;
+    }
+  }
+  .about {
+		text-align: center;
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    gap: 2rem;
+    margin-bottom: 15rem;
+    h1 {
+      font-size: 3.2rem;
+      color: $fwg-green;
+    }
+    p {
+      font-size: 2rem;
+      width: 50%;
+    }
+	}
+  .cta {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+		margin: 10rem;
+    p {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: right;
+      width: 50%;
+    }
+  }
+}

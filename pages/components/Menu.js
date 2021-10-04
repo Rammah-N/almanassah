@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Menu.module.scss";
-import { useState } from "react";
 const Menu = ({ toggled, toggleMenu }) => {
 	return (
 		<div className={`${styles.menu} ${toggled ? styles.toggled : ""}`}>
@@ -12,6 +11,9 @@ const Menu = ({ toggled, toggleMenu }) => {
 				</li>
 				<li onClick={toggleMenu}>
 					<Link href="/forum">المنتدى</Link>
+				</li>
+				<li onClick={toggleMenu}>
+					<Link href="/reports">التقارير</Link>
 				</li>
 				<li onClick={toggleMenu}>
 					<Link href="/dataforchange">بيانات للتغيير</Link>

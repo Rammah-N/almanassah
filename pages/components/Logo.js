@@ -9,8 +9,8 @@ const Logo = ({ textColor, above}) => {
 					المنصة
 				</h1>
 			</Link>
-
 			<div></div>
+
 		</div>
 	);
 };

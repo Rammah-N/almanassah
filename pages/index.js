@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "./components/Button";
 import Link from "next/dist/client/link";
 import { Slider } from "./components/Slider";
+import  Head  from "next/head";
 export default function Home() {
 	const data = [
 		{
@@ -26,6 +27,10 @@ export default function Home() {
 		},
 	];
 	return (
+		<>
+		<Head>
+			<title>المنصة</title>
+		</Head>
 		<main className={styles.home}>
 			{/*Hero Section */}
 
@@ -88,5 +93,6 @@ export default function Home() {
 				</Button>
 			</section>
 		</main>
+		</>
 	);
 }
