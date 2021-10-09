@@ -58,8 +58,8 @@ const Forum = () => {
 			<section className={styles.role}>
 				<Image
 					src="/images/Role.svg"
-					height="480"
-					width="430"
+					height="380"
+					width="350"
 					alt="Roles of FWG"
 				/>
 				<div className={styles.role_info}>

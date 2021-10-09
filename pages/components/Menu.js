@@ -57,6 +57,18 @@ const Menu = ({ toggled, toggleMenu }) => {
 						<Link href="/contact">تواصل معنا</Link>
 					</li>
 				</div>
+				<div className={styles.translation}>
+					<li onClick={toggleMenu}>
+						<Link href="/" locale="en">
+							English
+						</Link>
+					</li>
+					<li onClick={toggleMenu}>
+						<Link href="/" locale="ar">
+							العربية
+						</Link>
+					</li>
+				</div>
 			</div>
 		</div>
 	);

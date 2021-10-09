@@ -84,6 +84,7 @@
 			font-size: 2rem;
 			font-weight: 700;
 			justify-content: space-evenly;
+			text-align: center;
 			margin: 2rem 0;
 			h3 {
 				transition: all 0.3s;
@@ -94,36 +95,35 @@
 			}
 		}
 	}
-  .role {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 8rem;
-    &_info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 50%;
-    p {
-      text-align: right;
-      font-size: 2.4rem;
-      line-height: 1.5;
-    }
-    }
-  }
+	.role {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 15rem 0;
+		&_info {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			width: 50%;
+			p {
+				text-align: right;
+				font-size: 2.4rem;
+				line-height: 1.5;
+			}
+		}
+	}
 
-  .cta {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+	.cta {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
 		margin: 10rem;
-    p {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: right;
-      width: 50%;
-    }
-  }
-
+		p {
+			font-size: 2.5rem;
+			font-weight: 700;
+			text-align: right;
+			width: 50%;
+		}
+	}
 }
 
 .heading {
@@ -131,8 +131,227 @@
 	background-color: $fwg-yellow;
 	font-size: 2rem;
 	font-weight: 700;
-  color: $fwg-green;
+	color: $fwg-green;
 	&:first-of-type {
 		margin-bottom: 5rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.forum {
+		.hero {
+			&_logo {
+				h1 {
+					text-align: center;
+					font-size: 6rem;
+				}
+				div {
+					height: 40%;
+				}
+			}
+			p {
+				width: 50%;
+				font-size: 2.4rem;
+				margin-left: 2rem;
+			}
+		}
+		.intro {
+			.cover {
+				margin-left: 3rem;
+				&_filled {
+					background-color: $fwg-green;
+					height: 400px;
+					width: 250px;
+				}
+				&_hollow {
+					height: 400px;
+					width: 250px;
+				}
+			}
+
+			&_info {
+				font-size: 2rem;
+				text-align: center;
+				font-weight: 500;
+			}
+		}
+
+		.activities {
+			margin: 5rem 0;
+			.activity {
+				width: 100%;
+				font-size: 1.6rem;
+			}
+		}
+		.role {
+			display: flex;
+			justify-content: space-evenly;
+			margin: 8rem 0;
+			&_info {
+				align-items: flex-end;
+				width: 50%;
+				p {
+					text-align: center;
+					font-size: 1.8rem;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.cta {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			margin: 10rem;
+			p {
+				font-size: 2.5rem;
+				width: 100%;
+				text-align: center;
+				order: 1;
+				margin-bottom: 2rem;
+			}
+			button {
+				order: 2;
+			}
+		}
+	}
+
+	.heading {
+		font-size: 1.8rem;
+		color: $fwg-green;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.forum {
+		.hero {
+			height: calc(100vh - 50px);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			&_logo {
+				width: 100%;
+				order: 1;
+				h1 {
+					text-align: center;
+					font-size: 5rem;
+				}
+				div {
+					height: 100%;
+				}
+			}
+			p {
+				order: 2;
+				width: 100%;
+				font-size: 2.5rem;
+				margin-left: 0;
+				padding: 0 1rem;
+				margin-top: 3rem;
+			}
+		}
+		.intro {
+			flex-direction: column;
+			justify-content: center;
+			margin: 8rem 0;
+			align-items: center;
+			.cover {
+				position: relative;
+				display: flex;
+				margin-bottom: 7rem;
+				&_filled {
+					background-color: $fwg-green;
+					color: $fwg-yellow;
+					height: 300px;
+					width: 250px;
+					h1 {
+						font-size: 8rem;
+					}
+				}
+				&_hollow {
+					height: 300px;
+					width: 250px;
+					bottom: -20px;
+					left: -20px;
+				}
+			}
+
+			&_info {
+				font-size: 2.4rem;
+				text-align: right;
+				padding: 0 2rem;
+				width: 100%;
+			}
+		}
+
+		.activities {
+			display: flex;
+			flex-direction: column;
+			place-content: center;
+			place-items: center;
+			margin: 10rem 0;
+			.activity {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
+				gap: 2rem;
+				width: 100%;
+				font-size: 2rem;
+				text-align: center;
+
+			}
+		}
+		.role {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			margin: 10rem 0;
+			div {
+				order: 2;
+			}
+			img {
+				width: 80% !important;
+			}
+			&_info {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 5rem;
+				padding: 0 2rem;
+				width: 100%;
+				order: 1 !important;
+
+				p {
+					text-align: right;
+					font-size: 2.4rem;
+					line-height: 1.5;
+					order: 2;
+				}
+			}
+		}
+
+		.cta {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			margin: 8rem 4rem;
+			p {
+				font-size: 2.2rem;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+
+	.heading {
+		padding: 1rem 2rem;
+		background-color: $fwg-yellow;
+		font-size: 2rem;
+		font-weight: 700;
+		color: $fwg-green;
+		&:first-of-type {
+			margin-bottom: 5rem;
+		}
 	}
 }

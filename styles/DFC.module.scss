@@ -37,7 +37,7 @@
 					gap: 10px;
 					width: 100%;
 					div {
-						width: 50px;
+						width: 100%;
 						background-color: #fff;
 						border-radius: 5px;
 						&:nth-child(1) {
@@ -46,10 +46,10 @@
 						&:nth-child(2) {
 							height: 90px;
 						}
-						&:nth-child(3) {
+						&:nth-child(4) {
 							height: 60px;
 						}
-						&:nth-child(4) {
+						&:nth-child(3) {
 							height: 150px;
 							background-color: $fwg-yellow;
 						}
@@ -108,7 +108,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-    margin-top: 10rem;
+		margin-top: 10rem;
 		h1 {
 			font-size: 4rem;
 			color: $fwg-green;
@@ -145,66 +145,181 @@
 			}
 		}
 	}
-  .stats {
-    display: flex;
-    background-color: $fwg-yellow;
-    color: $black;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 3rem;
-    height: 300px;
-    margin: 15rem 0 8rem 0;
-    text-align: right;
-    .stat {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: calc(100% / 3);
-      direction: rtl;
-      &_info {
-        h2 {
-          font-size: 2rem;
-          font-weight: 300;
-        }
-        h1 {
-          font-size: 4rem;
-          color: $fwg-green;
-        }
-      }
-    }
-    i {
-      width: 5px;
-      height: 150px;
-      background-color: #fff;
-      margin: 0 7rem 0 0;
-    }
-  }
-  .about {
-		text-align: center;
-    display: grid;
-    grid-auto-flow: row;
-    justify-items: center;
-    gap: 2rem;
-    margin-bottom: 15rem;
-    h1 {
-      font-size: 3.2rem;
-      color: $fwg-green;
-    }
-    p {
-      font-size: 2rem;
-      width: 50%;
-    }
+	.stats {
+		display: flex;
+		background-color: $fwg-yellow;
+		color: $black;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: 3rem;
+		height: 300px;
+		margin: 15rem 0 8rem 0;
+		text-align: right;
+		.stat {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: calc(100% / 3);
+			direction: rtl;
+			&_info {
+				h2 {
+					font-size: 2rem;
+					font-weight: 300;
+				}
+				h1 {
+					font-size: 4rem;
+					color: $fwg-green;
+				}
+			}
+		}
+		i {
+			width: 5px;
+			height: 150px;
+			background-color: #fff;
+			margin: 0 7rem 0 0;
+		}
 	}
-  .cta {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+	.about {
+		text-align: center;
+		display: grid;
+		grid-auto-flow: row;
+		justify-items: center;
+		gap: 2rem;
+		margin-bottom: 15rem;
+		h1 {
+			font-size: 3.2rem;
+			color: $fwg-green;
+		}
+		p {
+			font-size: 2rem;
+			width: 50%;
+		}
+	}
+	.cta {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
 		margin: 10rem;
-    p {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: right;
-      width: 50%;
-    }
-  }
+		p {
+			font-size: 2.5rem;
+			font-weight: 700;
+			text-align: right;
+			width: 50%;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.main {
+		.hero {
+			flex-direction: column;
+			justify-content: flex-start;
+			height: calc(100vh - 50px);
+			&_chart {
+				width: 100%;
+				padding: 2rem 0;
+				.chart {
+					padding: 2rem;
+					width: 80%;
+					&_figure {
+						display: grid;
+						grid-auto-flow: column;
+						margin-top: 3rem;
+						align-items: flex-end;
+						gap: 10px;
+						width: 100%;
+						div {
+							width: 100%;
+							background-color: #fff;
+							border-radius: 5px;
+						}
+					}
+				}
+			}
+
+			&_info {
+				text-align: center;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 0 2rem;
+				margin-top: 4rem;
+				h1 {
+					font-size: 2.8rem;
+					color: $fwg-green;
+					margin-bottom: 1rem;
+				}
+				p {
+					font-size: 2.2rem;
+					padding-left: 0;
+				}
+				button {
+					align-self: center;
+					cursor: pointer;
+					transition: transform 0.2s;
+					&:hover {
+						transform: scale(1.05);
+					}
+				}
+			}
+		}
+
+		.stats {
+			padding: 3rem 1rem;
+			height: auto;
+			flex-direction: column;
+			.stat {
+				width: 100%;
+				margin-top: 2rem;
+				&_info {
+					h2 {
+						font-size: 2.2rem;
+					}
+					h1 {
+						font-size: 4.2rem;
+						color: $fwg-green;
+					}
+				}
+			}
+			i {
+				width: 5px;
+				height: 100px;
+				background-color: #fff;
+				margin: 2rem 0 0 0;
+			}
+		}
+		.about {
+			text-align: center;
+			display: grid;
+			grid-auto-flow: row;
+			justify-items: center;
+			gap: 2rem;
+			margin-bottom: 15rem;
+			padding: 0 2rem;
+
+			p {
+				font-size: 2rem;
+				width: 100%;
+			}
+		}
+		.cta {
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			margin: 10rem 2rem;
+			p {
+				font-size: 2.5rem;
+				font-weight: 700;
+				text-align: center;
+				width: 100%;
+				order: 1;
+				margin-bottom: 2rem;
+			}
+			button {
+				order: 2;
+			}
+		}
+	}
 }

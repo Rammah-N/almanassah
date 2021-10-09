@@ -57,6 +57,7 @@
 					img {
 						transition: all 0.5s;
 						margin-right: -50px;
+						visibility: hidden;
 					}
 				}
 				&:hover {
@@ -66,6 +67,7 @@
 					.arrow {
 						img {
 							margin-right: 0;
+							visibility: visible;
 						}
 					}
 				}
@@ -76,6 +78,7 @@
 					.arrow {
 						img {
 							margin-right: 0;
+							visibility: visible;
 						}
 					}
 				}
@@ -98,69 +101,8 @@
 			align-content: center;
 			justify-items: center;
 			gap: 3rem;
-      transition: all 0.3s;
+			transition: all 0.3s;
 			// align-items: center;
-			.filter {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: start;
-				width: 100%;
-				transition: all 0.3s;
-				.list {
-					width: 100%;
-					color: $black;
-					background-color: #fff;
-					font-size: 1.6rem;
-					font-weight: 500;
-					max-height: 0;
-					transition: all 0.4s;
-					ul {
-						padding: 1rem 0;
-						padding-right: 1rem;
-						border-top: none;
-						width: 100%;
-						list-style: none;
-						visibility: hidden;
-            transition: all 0.5s;
-            max-height: 0;
-						li {
-							margin: 1rem 0;
-							opacity: 0;
-							transition: all 0.2s;
-						}
-					}
-				}
-				&.shown {
-          height: auto;
-					border-radius: 10px;
-          max-height: 500px;
-          transition: max-height 0.3s;
-					.list {
-            ul {
-              border: 1px solid #cecdcc;
-							border-top: none;
-              border-bottom-right-radius: 15px;
-              border-bottom-left-radius: 15px;
-							max-height: 500px;
-							visibility: visible;
-							li {
-								opacity: 1;
-							}
-						}
-					}
-					.btn {
-						border-top-right-radius: 10px;
-						border-top-left-radius: 10px;
-						border-bottom-right-radius: 0;
-						border-bottom-left-radius: 0;
-						border-bottom: none;
-					}
-					img {
-						transform: rotate(180deg);
-					}
-				}
-			}
 			.btn {
 				border: 1px solid #cecdcc;
 				background-color: #fff;
@@ -176,14 +118,6 @@
 				font-weight: 700;
 				color: $fwg-green;
 				transition: all 0.1s;
-				&:hover {
-					border: 1px solid $fwg-yellow;
-				}
-				img {
-					cursor: pointer;
-					margin-right: 2rem;
-					transition: transform 0.3s;
-				}
 			}
 			.btnAll {
 				background-color: $fwg-yellow;
@@ -210,5 +144,137 @@
 	}
 }
 
-.rotated {
+@media screen and (max-width: 900px) {
+	.main {
+		.hero {
+			background-color: $fwg-green;
+			height: calc(100vh - 90px);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 5rem 2rem;
+			text-align: right;
+			&_info {
+				background-color: #fff;
+				font-size: 3rem;
+				height: 80%;
+				width: 300px;
+				padding: 1rem;
+				p {
+					color: $fwg-green;
+					font-size: 2.2rem;
+				}
+			}
+
+			&_titles {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-end;
+				width: auto;
+				.title {
+					h1 {
+						font-size: 3.5rem;
+					}
+				}
+			}
+		}
+		.description {
+			font-size: 2.7rem;
+			font-weight: 500;
+			text-align: center;
+			width: 100%;
+			padding: 0 2rem;
+		}
+		.documents {
+			&_filters {
+				gap: 3rem 2rem;
+				// align-items: center;
+				.btn {
+					justify-content: center;
+					font-size: 1.8rem;
+				}
+			}
+
+			&_content {
+				display: grid;
+				margin: 10rem 0;
+				grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+				justify-content: space-evenly;
+				align-items: center;
+				justify-items: center;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.main {
+		.hero {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 5rem 1rem;
+			text-align: right;
+			&_info {
+				font-size: 2.6rem;
+				height: 200px;
+				width: 300px;
+				padding: 2rem;
+			}
+
+			&_titles {
+				justify-content: center;
+				align-items: flex-end;
+				width: 100%;
+				.title {
+					margin: 1rem 0;
+					h1 {
+						font-size: 3.5rem;
+						-webkit-text-stroke: 0.4px $fwg-yellow;
+					}
+					.arrow {
+						img {
+							transition: all 0.5s;
+							margin-right: 0;
+							display: none;
+						}
+					}
+					&:hover {
+						.arrow {
+							img {
+								margin-right: 0;
+								display: inline;
+							}
+						}
+					}
+					&.selected {
+						h1 {
+							color: $fwg-yellow;
+						}
+						.arrow {
+							img {
+								margin-right: 0;
+								display: inline;
+							}
+						}
+					}
+				}
+			}
+		}
+		.description {
+			font-size: 2.7rem;
+			text-align: center;
+			margin: 7rem auto;
+			width:100%;
+		}
+		.documents {
+			&_filters {
+				.btn {
+					justify-content: center;
+					font-size: 2.2rem;
+				}
+			}
+		}
+	}
 }

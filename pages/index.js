@@ -5,7 +5,13 @@ import Button from "./components/Button";
 import Link from "next/dist/client/link";
 import { Slider } from "./components/Slider";
 import  Head  from "next/head";
+import { useRouter } from "next/dist/client/router";
+import { ar } from './locales/ar'
+import { en } from './locales/en'
 export default function Home() {
+	const router = useRouter();
+	const t = router.locale === 'ar' ? ar : ar;
+	console.log(t);
 	const data = [
 		{
 			title: "المناصرة, ما هي وما أهدافها",
@@ -54,7 +60,7 @@ export default function Home() {
 				</p>
 				<div className={styles.goals_container}>
 					<div className={styles.home_goals_goal}>
-						<p>هدفنا تسيير عملية التشبيك والتنسيق</p>
+						<p>{t.home.heroTitle}</p>
 						<img src="/icons/goal-1.svg" alt="" />
 					</div>
 					<div className={styles.home_goals_goal}>
@@ -96,3 +102,4 @@ export default function Home() {
 		</>
 	);
 }
+

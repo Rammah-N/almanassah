@@ -10,7 +10,7 @@ const register = () => {
 				</div>
 				<div className={styles.main}>
 					<h2>حساب جديد</h2>
-					<div className={styles.socials}>
+{/* 					<div className={styles.socials}>
 						<Link href="/" passHref>
 							<Image
 								src="/icons/googleRegister.svg"
@@ -35,7 +35,7 @@ const register = () => {
 								height="25"
 							/>
 						</Link>
-					</div>
+					</div> */}
 					<p>أو يمكنك إستخدام بريدك الإلكتروني للتسجيل</p>
 					<form>
 						<input type="text" placeholder="الإسم" name="name" required />

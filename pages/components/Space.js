@@ -5,7 +5,7 @@ import styles from "../../styles/SpaceComponent.module.scss";
 const Space = ({ title, description, link, img, flip }) => {
 	return (
 		<div className={styles.space}>
-			<Image src={img} height="250" width="300" alt={`${title} space`} />
+			<img src={img} alt={`${title} space`} />
 			<div className={styles.info} style={{ order: flip ? `${1}` : `${2}` }}>
 				<h2>{title}</h2>
 				<p>{description}</p>

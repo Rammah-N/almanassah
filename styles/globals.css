@@ -29,3 +29,19 @@ button {
 p {
 	color: #232528;
 }
+
+@media screen and (max-width: 1000px) {
+	html {
+		font-size: 9px;
+	}
+}
+@media screen and (max-width: 600px) {
+	html {
+		font-size: 8px;
+	}
+}
+@media screen and (max-width: 400px) {
+	html {
+		font-size: 7px;
+	}
+}

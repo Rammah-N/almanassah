@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/dist/client/image";
 import Button from "./components/Button";
 import Head from "next/head";
-const dataforchange = () => {
+import { useState, useEffect } from "react";
+const DataForChange = () => {
 	return (
 		<>
 			<Head>
@@ -17,13 +18,11 @@ const dataforchange = () => {
 							<h1>:عدد الإستبيانات</h1>
 							<p>150 إستبيان على مر 7 شهور في 11 ولاية</p>
 							<div className={styles.chart_figure}>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
 							</div>
 						</div>
 					</div>
@@ -126,4 +125,4 @@ const dataforchange = () => {
 	);
 };
 
-export default dataforchange;
+export default DataForChange;
