@@ -14,7 +14,10 @@ import {
 } from "./content";
 import Head from "next/head";
 import Filter from "../components/Filter";
-const Reports = () => {
+import axios from "axios";
+import getConfig from 'next/config';
+const Reports = ({serverContent}) => {
+	console.log(serverContent);
 	const [selectedTitle, setSelectedTitle] = useState(null);
 	const [content, setContent] = useState(documents);
 	const selectTitle = (e) => {
@@ -31,30 +34,29 @@ const Reports = () => {
 		}
 	};
 	const filterContent = (e) => {
-		const filter = e.target.value
+		const filter = e.target.value;
 		console.log(filter);
-		if(filter === 'all') {
+		if (filter === "all") {
 			setContent(documents);
 		} else {
 			setContent(documents);
-			if(types.indexOf(filter) !== -1) {
-				setContent(documents.filter(doc => doc.type === filter));
+			if (types.indexOf(filter) !== -1) {
+				setContent(documents.filter((doc) => doc.type === filter));
 			}
-			if(locations.indexOf(filter) !== -1) {
-				setContent(documents.filter(doc => doc.subtype === filter));
+			if (locations.indexOf(filter) !== -1) {
+				setContent(documents.filter((doc) => doc.subtype === filter));
 			}
-			if(years.indexOf(Number(filter)) !== -1) {
-				setContent(documents.filter(doc => doc.year === Number(filter)));
+			if (years.indexOf(Number(filter)) !== -1) {
+				setContent(documents.filter((doc) => doc.year === Number(filter)));
 			}
-			if(months.indexOf(filter) !== -1) {
-				setContent(documents.filter(doc => doc.month === filter));
+			if (months.indexOf(filter) !== -1) {
+				setContent(documents.filter((doc) => doc.month === filter));
 			}
 		}
 	};
 	const toggleFilter = (e) => {
 		e.target.parentNode.parentNode.classList.toggle(filterStyles.shown);
 	};
-
 	return (
 		<>
 			<Head>
@@ -74,7 +76,7 @@ const Reports = () => {
 							className={styles.title}
 							id="bimonthly"
 							onClick={(e) => selectTitle(e)}>
-							<h1>تقارير نصف شهرية</h1>
+							<h1>نشرات شهرية</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -116,7 +118,7 @@ const Reports = () => {
 							className={styles.title}
 							id="monthly"
 							onClick={(e) => selectTitle(e)}>
-							<h1>تقارير شهرية</h1>
+							<h1>وثائق تتصل بالإنتقال</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -134,7 +136,10 @@ const Reports = () => {
 				</p>
 				<section className={styles.documents}>
 					<div className={styles.documents_filters}>
-						<button className={`${styles.btn} ${styles.btnAll}`} onClick={(e) => filterContent(e)} value="all">
+						<button
+							className={`${styles.btn} ${styles.btnAll}`}
+							onClick={(e) => filterContent(e)}
+							value="all">
 							عرض الكل
 						</button>
 						<Filter
@@ -180,5 +185,18 @@ const Reports = () => {
 		</>
 	);
 };
+// const {publicRuntimeConfig} = getConfig();
+// console.log(publicRuntimeConfig);
+
+export async function getServerSideProps() {
+	const api = process.env.NEXT_PUBLIC_API_URL
+	const res = await fetch(`${api}/dfc`)
+	const content = await res.json()
+	return {
+		props: {
+			serverContent: content
+		}
+	}
+}
 
 export default Reports;

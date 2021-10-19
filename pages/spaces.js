@@ -1,5 +1,6 @@
 import Space from "./components/Space";
 import styles from "../styles/Spaces.module.scss";
+import ReservationForm from './components/ReservationForm';
 const spaces = () => {
 	return (
 		<main className={styles.spaces}>
@@ -38,6 +39,10 @@ const spaces = () => {
 					description="نص تعريفي يتكلم عن محتوى المساحه وهدف المساحه ولماذا تم صنع المساحة للتوضيح للمستخدم والزائر عن ماهية المساحة"
           link="/register"
 				/>
+			</section>
+
+			<section className={styles.reserve}>
+				<ReservationForm />
 			</section>
 		</main>
 	);

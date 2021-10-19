@@ -11,7 +11,6 @@ import { en } from './locales/en'
 export default function Home() {
 	const router = useRouter();
 	const t = router.locale === 'ar' ? ar : ar;
-	console.log(t);
 	const data = [
 		{
 			title: "المناصرة, ما هي وما أهدافها",
@@ -60,7 +59,7 @@ export default function Home() {
 				</p>
 				<div className={styles.goals_container}>
 					<div className={styles.home_goals_goal}>
-						<p>{t.home.heroTitle}</p>
+						<p>هدفنا تسيير عملية التشبيك والتنسيق</p>
 						<img src="/icons/goal-1.svg" alt="" />
 					</div>
 					<div className={styles.home_goals_goal}>

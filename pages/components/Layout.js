@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Menu toggled={toggled} toggleMenu={toggleMenu} />
-			<nav className={navStyles.nav} toggled={toggled}>
+			<nav className={navStyles.nav} >
 				<NavIcon
 					toggleMenu={toggleMenu}
 					iconColor={iconColor}

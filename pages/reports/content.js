@@ -5,13 +5,18 @@ export const hero_info = {
 	monthly: "معلومات عن التقارير الشهرية",
 };
 export const types = [
-	"شهري",
-	"نصف شهري",
+	"نشرات شهرية",
 	"مناصرة",
 	"إجتماعات",
-	"الإنتقالية",
+	"وثائق تتصل بالإنتقال",
 ];
-export const locations = ["النيل الأزرق", "دارفور", "قومية"];
+export const locations = [
+	"النيل الأزرق",
+	"دارفور",
+	"قومية",
+	"جنوب كردفان",
+	"الشرق",
+];
 export const years = [2021, 2020];
 export const months = [
 	"يناير",
@@ -34,7 +39,7 @@ export const documents = [
 		subtype: "النيل الأزرق",
 		month: "يونيو",
 		year: 2021,
-		filter: ['bimonthly', 'jun', 'BN', 2020],
+		filter: ["bimonthly", "jun", "BN", 2020],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -43,7 +48,7 @@ export const documents = [
 		subtype: "النيل الأزرق",
 		month: "يونيو",
 		year: 2020,
-		filter: ['bimonthly', 'june', 'BN', 2020],
+		filter: ["bimonthly", "june", "BN", 2020],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -52,7 +57,7 @@ export const documents = [
 		subtype: "النيل الأزرق",
 		month: "يوليو",
 		year: 2020,
-		filter: ['bimonthly', 'june', 'BN', 2020],
+		filter: ["bimonthly", "june", "BN", 2020],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -61,7 +66,7 @@ export const documents = [
 		subtype: "النيل الأزرق",
 		month: "يوليو",
 		year: 2020,
-		filter: ['bimonthly', 'june', 'BN', 2020],
+		filter: ["bimonthly", "june", "BN", 2020],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -70,7 +75,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "يناير",
 		year: 2020,
-		filter: ['bimonthly', 'june', 'BN', 2020],
+		filter: ["bimonthly", "june", "BN", 2020],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -79,7 +84,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "يناير",
 		year: 2021,
-		filter: ['bimonthly', 'june', 'BN', 2021],
+		filter: ["bimonthly", "june", "BN", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -88,7 +93,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "فبراير",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -97,7 +102,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "فبراير",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -106,7 +111,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "مارس",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -115,7 +120,7 @@ export const documents = [
 		subtype: "دارفور",
 		month: "مارس",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -124,7 +129,7 @@ export const documents = [
 		subtype: "قومية",
 		month: "أغسطس",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -133,7 +138,7 @@ export const documents = [
 		subtype: "قومية",
 		month: "أغسطس",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -142,7 +147,7 @@ export const documents = [
 		subtype: "قومية",
 		month: "ديسمبر",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 	{
@@ -151,7 +156,7 @@ export const documents = [
 		subtype: "قومية",
 		month: "ديسمبر",
 		year: 2021,
-		filter: ['monthly', 'national', 'aug', 2021],
+		filter: ["monthly", "national", "aug", 2021],
 		img: "/images/documentImage.png",
 	},
 ];

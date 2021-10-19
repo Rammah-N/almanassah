@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/dist/client/image";
 import Button from "./Button";
 import Link from "next/dist/client/link";
@@ -15,9 +16,6 @@ const Space = ({ title, description, link, img, flip }) => {
 					<Image src="/icons/cable.svg" alt="Icon" width="20" height="20" />
 					<Image src="/icons/wifi.svg" alt="Icon" width="20" height="20" />
 				</section>
-				<Link href={link} passHref>
-					<button>الحجز الآن</button>
-				</Link>
 			</div>
 		</div>
 	);

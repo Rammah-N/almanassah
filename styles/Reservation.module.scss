@@ -1,0 +1,132 @@
+@import "./variables.scss";
+
+.container {
+	border: 1px solid #d8d6d6;
+	display: flex;
+	justify-content: space-between;
+	background-color: #fff;
+	border-radius: 10px;
+	margin: 5rem 0 10rem 0;
+	box-shadow: -5px 10px 5px rgba(0, 0, 0, 0.15);
+	.slogan {
+		// padding: 15rem 0;
+		background-color: $fwg-green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 5rem;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		width: 40%;
+		h1 {
+			transform: rotate(-90deg);
+			color: $fwg-yellow;
+		}
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 60%;
+		padding: 4rem 0;
+		height: 100%;
+		h2 {
+			font-size: 4rem;
+			color: $fwg-green;
+			margin-bottom: 1rem;
+		}
+		p {
+			font-size: 1.4rem;
+			margin: 2rem 0;
+			font-weight: 500;
+			width: 80%;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			width: 70%;
+			input {
+				width: 100%;
+				text-align: right;
+				padding: 1rem;
+				border-radius: 5px;
+				border: 1px solid #dce2e4;
+				transition: all 0.2s;
+				&:focus {
+					outline: none;
+					border: 1px solid #aeb3b4;
+				}
+				&::placeholder {
+					color: #c3cbcf;
+					font-size: 1.4rem;
+					font-weight: 300;
+				}
+				margin: 1.3rem 0;
+			}
+			label {
+				font-size: 1.4rem;
+				text-align: right;
+				font-weight: 500;
+				margin-bottom: 1rem;
+			}
+			select {
+				direction: rtl;
+				padding: 1rem 2rem;
+				border: 1px solid #dce2e4;
+				option {
+					font-size: 1.4rem;
+					margin: 0 1rem;
+				}
+				&:focus {
+					outline: none;
+				}
+			}
+			button {
+				border: none;
+				padding: 1rem 2rem;
+				border-radius: 5px;
+				background-color: $fwg-green;
+				font-weight: 700;
+				font-size: 1.4rem;
+				margin-top: 2rem;
+				color: #fff;
+				cursor: pointer;
+				transition: color 0.2s;
+				&:hover {
+					color: $fwg-yellow;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.container {
+		flex-direction: column;
+		.slogan {
+			width: 100%;
+			border-radius: 0;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			padding: 4rem 0;
+			h1 {
+				transform: rotate(0);
+			}
+		}
+		.main {
+			width: 100%;
+			p {
+				width: 90%;
+				font-size: 1.6rem;
+			}
+			form {
+				input {
+					&::placeholder {
+						font-size: 1.6rem;
+					}
+				}
+			}
+		}
+	}
+}
