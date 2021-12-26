@@ -20,21 +20,21 @@ function enableScroll() {
 }
 
 const Layout = ({ children }) => {
-	const [iconColor, seticonColor] = useState("#48A470");
-	const [toggled, settoggled] = useState(false);
+	const [iconColor, setIconColor] = useState("#48A470");
+	const [toggled, setToggled] = useState(false);
 	const toggleMenu = () => {
 		if (!toggled) {
-			settoggled(true);
+			setToggled(true);
 			disableScroll();
-			seticonColor("#fff");
+			setIconColor("#fff");
 			setTimeout(() => {
 				// To delay changing the color of the Logo and Menu Icon to make it show like it's transitioning
 				document.querySelector("nav").classList.toggle(navStyles.toggled);
 			}, 500);
 		} else {
 			// Here i'm not delaying the transition when the menu's closing.
-			seticonColor("#48A470");
-			settoggled(false);
+			setIconColor("#48A470");
+			setToggled(false);
 			enableScroll();
 			document.querySelector("nav").classList.toggle(navStyles.toggled);
 		}

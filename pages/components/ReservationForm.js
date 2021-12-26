@@ -9,14 +9,16 @@ const register = () => {
 			</div>
 			<div className={styles.main}>
 				<h2>إحجز مساحة</h2>
-				<p>
-					الرجاء ملأ المعلومات أدناه لحجز مساحه وسيتم التواصل معك في حالة قبول
-					طلبك
-				</p>
-				<form>
+				<p>يمكنك حجز مساحة عن طريق ملأ الطلب من الرابط التالي</p>
+				{/* <form>
 					<input type="text" placeholder="الإسم" name="name" required />
 					<input type="text" placeholder="الجهة" name="affinity" required />
-					<input type="text" placeholder="الهدف من الحجز" name="reason" required />
+					<input
+						type="text"
+						placeholder="الهدف من الحجز"
+						name="reason"
+						required
+					/>
 					<label>إختر المساحة</label>
 					<select name="spaces" id="spaces">
 						<option value="portsudan">بورتسودان</option>
@@ -34,7 +36,10 @@ const register = () => {
 					<button type="submit" className={styles.submit}>
 						الحجز الآن
 					</button>
-				</form>
+				</form> */}
+				<Link href="https://forms.gle/ZhnSFT9fjaD16T8u8" passHref>
+					<button style={{padding: '1rem 2rem', border: 'none',}}>إحجز مساحة</button>
+				</Link>
 			</div>
 		</div>
 	);

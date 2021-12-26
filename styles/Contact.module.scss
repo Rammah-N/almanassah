@@ -21,6 +21,7 @@
 		color: #fff;
 		font-size: 1.8rem;
 		margin-top: 2rem;
+		max-width: 70%;
 	}
 	form {
 		display: flex;
@@ -75,6 +76,15 @@
 			&:hover {
 				transform: scale(1.05);
 			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.main {
+		padding: 0 2rem;
+		p {
+			max-width: 90%;
 		}
 	}
 }

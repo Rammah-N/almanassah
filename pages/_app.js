@@ -7,12 +7,20 @@ TODO:
   Components: Layout wrapper, Nav Component, Menu, Footer, PrimaryBtn, SecondaryBtn, HomeSlider, HomeSlider Item, Documents, Documents Item, OpenSpace Component  
 */
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, jwt }) {
 	return (
-			<Layout>
+			<Layout jwt={jwt}>
 				<Component {...pageProps} />
 			</Layout>
 	);
 }
-
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	return {
+		props: {
+			jwt: jwt
+		},
+	};
+}
 export default MyApp;

@@ -1,5 +1,10 @@
 export const en = {
   home: {
-    heroTitle: "Sup"
+    heroTitle: [
+			"The Platform is your",
+			"destination to all",
+			"data related to",
+			"civil societies",
+		],
   }
 }

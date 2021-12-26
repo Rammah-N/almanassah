@@ -11,7 +11,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang="ar">
 				<Head>
-					<meta charset="UTF-8" />
+					<meta charSet="UTF-8" />
 					<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 					<meta
 						name="viewport"

@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/dist/client/image";
 import Button from "./components/Button";
 import Head from "next/head";
-import { useState, useEffect } from "react";
 const DataForChange = () => {
 	return (
 		<>

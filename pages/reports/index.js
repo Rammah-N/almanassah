@@ -3,7 +3,9 @@ import styles from "../../styles/Reports.module.scss";
 import filterStyles from "../../styles/Filter.module.scss";
 import Image from "next/dist/client/image";
 import { useState, useEffect } from "react";
+import { parseCookies } from "nookies";
 import ReportDocument from "../components/ReportDocument";
+import Link from "next/link";
 import {
 	hero_info,
 	documents,
@@ -14,10 +16,7 @@ import {
 } from "./content";
 import Head from "next/head";
 import Filter from "../components/Filter";
-import axios from "axios";
-import getConfig from 'next/config';
-const Reports = ({serverContent}) => {
-	console.log(serverContent);
+const Reports = ({ serverContent, jwt }) => {
 	const [selectedTitle, setSelectedTitle] = useState(null);
 	const [content, setContent] = useState(documents);
 	const selectTitle = (e) => {
@@ -35,7 +34,6 @@ const Reports = ({serverContent}) => {
 	};
 	const filterContent = (e) => {
 		const filter = e.target.value;
-		console.log(filter);
 		if (filter === "all") {
 			setContent(documents);
 		} else {
@@ -104,7 +102,7 @@ const Reports = ({serverContent}) => {
 							className={styles.title}
 							id="meetings"
 							onClick={(e) => selectTitle(e)}>
-							<h1>تقارير إجتماعات</h1>
+							<h1>النشرات المتخصصة</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -134,53 +132,79 @@ const Reports = ({serverContent}) => {
 					ستجد هنا جميع المستندات والتقارير المتعلقة بالمنتدى التفاكري للسلام,
 					من تقارير شهرية,نصف شهرية وتقارير إجتماعات وتقارير المناصرة
 				</p>
-				<section className={styles.documents}>
-					<div className={styles.documents_filters}>
-						<button
-							className={`${styles.btn} ${styles.btnAll}`}
-							onClick={(e) => filterContent(e)}
-							value="all">
-							عرض الكل
-						</button>
-						<Filter
-							items={types}
-							title="نوع التقرير"
-							toggleFilter={toggleFilter}
-							selectFilter={filterContent}
-						/>
-						<Filter
-							title="الموقع"
-							items={locations}
-							toggleFilter={toggleFilter}
-							selectFilter={filterContent}
-						/>
-						<Filter
-							title="السنة"
-							items={years}
-							toggleFilter={toggleFilter}
-							selectFilter={filterContent}
-						/>
-						<Filter
-							title="الشهر"
-							items={months}
-							toggleFilter={toggleFilter}
-							selectFilter={filterContent}
-						/>
-					</div>
-					<div className={styles.documents_content}>
-						{content.map((doc, i) => (
-							<ReportDocument
-								title={doc.title}
-								key={`${doc.title}-${i}`}
-								img={doc.img}
-								type={doc.type}
-								subtype={doc.subtype}
-								month={doc.month}
-								year={doc.year}
+				{!jwt ? (
+					<section className={styles.documents}>
+						<div className={styles.documents_filters}>
+							<button
+								className={`${styles.btn} ${styles.btnAll}`}
+								onClick={(e) => filterContent(e)}
+								value="all">
+								عرض الكل
+							</button>
+							<Filter
+								items={types}
+								title="نوع التقرير"
+								toggleFilter={toggleFilter}
+								selectFilter={filterContent}
 							/>
-						))}
+							<Filter
+								title="الموقع"
+								items={locations}
+								toggleFilter={toggleFilter}
+								selectFilter={filterContent}
+							/>
+							<Filter
+								title="السنة"
+								items={years}
+								toggleFilter={toggleFilter}
+								selectFilter={filterContent}
+							/>
+							<Filter
+								title="الشهر"
+								items={months}
+								toggleFilter={toggleFilter}
+								selectFilter={filterContent}
+							/>
+						</div>
+						<div className={styles.documents_content}>
+							{content.map((doc, i) => (
+								<ReportDocument
+									title={doc.title}
+									key={`${doc.title}-${i}`}
+									img={doc.img}
+									type={doc.type}
+									subtype={doc.subtype}
+									month={doc.month}
+									year={doc.year}
+								/>
+							))}
+						</div>
+					</section>
+				) : (
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							marginBottom: "8rem",
+						}}>
+						<h1 style={{ fontSize: "2.5rem", marginBottom: "4rem", textAlign: 'center' }}>
+							الرجاء تسجيل الدخول للوصول إلى تقارير المنتدى التفاكري للسلام
+						</h1>
+						<button
+							style={{
+								border: "none",
+								backgroundColor: "#033F38",
+								padding: "1rem 3rem",
+								borderRadius: "4px",
+								color: "#fff",
+								fontWeight: "700",
+								cursor: 'pointer'
+							}}>
+							<Link href="/login">تسجيل الدخول</Link>
+						</button>
 					</div>
-				</section>
+				)}
 			</main>
 		</>
 	);
@@ -188,15 +212,18 @@ const Reports = ({serverContent}) => {
 // const {publicRuntimeConfig} = getConfig();
 // console.log(publicRuntimeConfig);
 
-export async function getServerSideProps() {
-	const api = process.env.NEXT_PUBLIC_API_URL
-	const res = await fetch(`${api}/dfc`)
-	const content = await res.json()
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	const api = process.env.NEXT_PUBLIC_API_URL;
+	const res = await fetch(`${api}/dfc`);
+	const content = await res.json();
 	return {
 		props: {
-			serverContent: content
-		}
-	}
+			serverContent: content,
+			jwt: jwt,
+		},
+	};
 }
 
 export default Reports;

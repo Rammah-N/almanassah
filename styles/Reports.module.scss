@@ -10,8 +10,8 @@
 		text-align: right;
 		&_info {
 			background-color: #fff;
-			font-size: 3rem;
-			height: 100%;
+			font-size: 1.8rem;
+			height: auto;
 			width: 500px;
 			padding: 2rem;
 			font-weight: 700;
@@ -20,8 +20,29 @@
 			place-items: center;
 			border-radius: 5px;
 			text-align: center;
+			overflow: scroll;
+			/* width */
+			&::-webkit-scrollbar {
+				width: 10px;
+			}
+
+			/* Track */
+			&::-webkit-scrollbar-track {
+				background: #fff;
+			}
+
+			/* Handle */
+			&::-webkit-scrollbar-thumb {
+				background: $fwg-yellow;
+			}
+
+
 			p {
 				color: $fwg-green;
+				max-height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 		}
 
@@ -157,12 +178,12 @@
 			&_info {
 				background-color: #fff;
 				font-size: 3rem;
-				height: 80%;
 				width: 300px;
-				padding: 1rem;
+				padding: 2rem 1rem;
 				p {
 					color: $fwg-green;
-					font-size: 2.2rem;
+					font-size: 2rem;
+					display: block;
 				}
 			}
 
@@ -218,9 +239,12 @@
 			text-align: right;
 			&_info {
 				font-size: 2.6rem;
-				height: 200px;
+				height: auto;
 				width: 300px;
 				padding: 2rem;
+				p {
+					max-height: 150px;
+				}
 			}
 
 			&_titles {
@@ -266,7 +290,7 @@
 			font-size: 2.7rem;
 			text-align: center;
 			margin: 7rem auto;
-			width:100%;
+			width: 100%;
 		}
 		.documents {
 			&_filters {

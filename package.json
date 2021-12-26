@@ -16,7 +16,8 @@
     "nookies": "^2.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "rerousel": "^0.1.9"
+    "rerousel": "^0.1.9",
+    "zustand": "^3.5.14"
   },
   "devDependencies": {
     "eslint": "7.32.0",

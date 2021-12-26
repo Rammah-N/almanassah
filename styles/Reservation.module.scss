@@ -14,7 +14,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 5rem;
+		font-size: 3.5rem;
 		border-top-left-radius: 10px;
 		border-bottom-left-radius: 10px;
 		width: 40%;
@@ -82,20 +82,20 @@
 					outline: none;
 				}
 			}
-			button {
-				border: none;
-				padding: 1rem 2rem;
-				border-radius: 5px;
-				background-color: $fwg-green;
-				font-weight: 700;
-				font-size: 1.4rem;
-				margin-top: 2rem;
-				color: #fff;
-				cursor: pointer;
-				transition: color 0.2s;
-				&:hover {
-					color: $fwg-yellow;
-				}
+		}
+		button {
+			border: none;
+			padding: 1rem 2rem;
+			border-radius: 5px;
+			background-color: $fwg-green;
+			font-weight: 700;
+			font-size: 1.4rem;
+			margin-top: 2rem;
+			color: #fff;
+			cursor: pointer;
+			transition: color 0.2s;
+			&:hover {
+				color: $fwg-yellow;
 			}
 		}
 	}

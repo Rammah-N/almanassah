@@ -39,29 +39,19 @@
 				color: $fwg-green;
 				margin-bottom: 2rem;
 			}
-			.socials {
-				display: flex;
-				justify-content: space-between;
-				width: 30%;
-				* {
-					cursor: pointer;
-					transition: transform 0.2s;
-					&:hover {
-						transform: scale(1.02);
-					}
-				}
-			}
 			p {
 				font-size: 1.4rem;
 				margin: 2rem 0;
+				text-align: center;
         font-weight: 500;
 			}
 			form {
 				display: flex;
 				flex-direction: column;
-        width: 70%;
+        width: 100%;
+				align-items: center;
 				input {
-          width: 100%;
+          width: 70%;
           text-align: right;
           padding: 1rem;
           border-radius: 5px;
@@ -92,6 +82,56 @@
               color: $fwg-yellow;
             }
         }
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 830px) {
+	.register {
+		.container {
+			width: 80%;
+		}
+	}
+}
+@media screen and (max-width: 620px) {
+	.register {
+		.container {
+			margin: 3rem 0;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 80%;
+			.slogan {
+				// padding: 15rem 0;
+				font-size: 3.4rem;
+				padding: 3rem 0;
+				border-top-right-radius: 10px;
+				border-bottom-left-radius: 0;
+				width: 100%;
+				h1 {
+					transform: rotate(0);
+				}
+			}
+
+			.main {
+				width: 100%;
+				padding: 2rem 0 4rem 0;
+				height: 100%;
+				h2 {
+					font-size: 4rem;
+					margin-bottom: 1rem;
+				}
+				p {
+					font-size: 1.6rem;
+					margin: 1rem 0;
+				}
+				form {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					width: 100%;
+				}
 			}
 		}
 	}
