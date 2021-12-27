@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 import Image from "next/image";
 import Button from "../components/Button";
 import Link from "next/dist/client/link";
-import  Slider  from "../components/Slider";
+import Slider from "../components/Slider";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ar } from "../locales/ar";
@@ -41,9 +41,11 @@ export default function Home() {
 				Hero Section
 				<section className={styles.home_hero}>
 					<h1>
-						{t.home.heroTitle[0]}
-						<span> {t.home.heroTitle[1]} </span>
-						<br /> {t.home.heroTitle[2]} <span> {t.home.heroTitle[3]}</span>
+						<span>{t.home.heroTitle[0]}</span>
+						<span>{t.home.heroTitle[1]} </span>
+						<br />
+						<span>{t.home.heroTitle[2]}</span>
+						<span>{t.home.heroTitle[3]}</span>
 					</h1>
 					<div></div>
 				</section>
