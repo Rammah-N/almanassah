@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../styles/Reports.module.scss";
 import filterStyles from "../styles/Filter.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { parseCookies } from "nookies";
+import axios from "axios";
 import ReportDocument from "../components/ReportDocument";
 import Link from "next/link";
 import {
@@ -59,6 +60,13 @@ const Reports = ({ serverContent, jwt }) => {
 	const toggleFilter = (e) => {
 		e.target.parentNode.parentNode.classList.toggle(filterStyles.shown);
 	};
+	useEffect(() => {
+		axios(`${process.env.NEXT_PUBLIC_API_URL}/reports`).then(res => {
+			console.log(res);
+		}).catch(error => {
+			console.error(error)
+		})
+	}, [jwt])
 	return (
 		<>
 			<Head>
@@ -133,7 +141,7 @@ const Reports = ({ serverContent, jwt }) => {
 					</div>
 				</section>
 				<p className={styles.description}>{t.reports.libraryDescription}</p>
-				{!jwt ? (
+				{jwt ? (
 					<section className={styles.documents}>
 						<div className={styles.documents_filters}>
 							<button

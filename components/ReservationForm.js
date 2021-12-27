@@ -15,7 +15,7 @@ const Register = () => {
 			<div className={styles.main}>
 				<h2>{t.spaces.reserve}</h2>
 				<p>{t.spaces.reserveDescription}</p>
-				{/* <form>
+				<form>
 					<input type="text" placeholder="الإسم" name="name" required />
 					<input type="text" placeholder="الجهة" name="affinity" required />
 					<input
@@ -41,10 +41,10 @@ const Register = () => {
 					<button type="submit" className={styles.submit}>
 						الحجز الآن
 					</button>
-				</form> */}
-				<Link href="https://forms.gle/ZhnSFT9fjaD16T8u8" passHref>
+				</form>
+				{/* <Link href="https://forms.gle/ZhnSFT9fjaD16T8u8" passHref>
 					<button style={{padding: '1rem 2rem', border: 'none',}}>{t.spaces.reserveNow}</button>
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);

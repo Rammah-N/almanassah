@@ -1,12 +1,14 @@
 {
   "name": "almanassah",
+  "homepage": "https://almanassah-sd.org",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "axios": "^0.23.0",

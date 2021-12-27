@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
+import Head from "next/dist/shared/lib/head";
 /* 
 TODO: 
   Pages: Homepage, About, Reports, Open Spaces, Contact, DFC, Registration Page, Login Page.
@@ -9,9 +10,12 @@ TODO:
 
 function MyApp({ Component, pageProps, jwt }) {
 	return (
-			<Layout jwt={jwt}>
-				<Component {...pageProps} />
-			</Layout>
+		<Layout jwt={jwt}>
+			<Head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			</Head>
+			<Component {...pageProps} />
+		</Layout>
 	);
 }
 export async function getServerSideProps(ctx) {
@@ -19,7 +23,7 @@ export async function getServerSideProps(ctx) {
 		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
 	return {
 		props: {
-			jwt: jwt
+			jwt: jwt,
 		},
 	};
 }
