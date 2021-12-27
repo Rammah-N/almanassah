@@ -1,31 +1,31 @@
 import styles from "../styles/Contact.module.scss";
-const contact = () => {
+import { useRouter } from "next/dist/client/router";
+import { ar } from "./locales/ar";
+import { en } from "./locales/en";
+const Contact = () => {
+	const router = useRouter();
+	const t = router.locale === "ar" ? ar : en;
 	return (
 		<main className={styles.main}>
-			<h1>تواصل معنا</h1>
-			<p>
-				للتواصل مع فريق تنسيق المنتدى التفاكري للسلام فيما يتصل بالتعرف على
-				أنشطة وبرامج عمل المنتدى التفاكري بمناطق عمله المختلفة، الرجاء استخدام
-				النموذج المرفق في الأدنى، سوف يقوم فريق التنسيق بالتواصل مع سيادتكم/ن
-				مباشرة
-			</p>
+			<h1>{t.common.contactUs}</h1>
+			<p>{t.contact.description}</p>
 			<form>
-				<label htmlFor="name">الإسم بالكامل</label>
+				<label htmlFor="name">{t.contact.name}</label>
 				<input type="text" name="name" required />
 
-				<label htmlFor="email">البريد الإلكتروني</label>
+				<label htmlFor="email">{t.common.email}</label>
 				<input type="email" name="email" required />
 
-				<label htmlFor="phone">رقم الهاتف</label>
+				<label htmlFor="phone">{t.common.phone}</label>
 				<input type="tel" name="phone" required />
 
-				<label htmlFor="message">الرسالة</label>
+				<label htmlFor="message">{t.contact.message}</label>
 				<textarea name="message" cols="30" rows="10" required></textarea>
 
-				<button type="submit">إرسال</button>
+				<button type="submit">{t.common.submit}</button>
 			</form>
 		</main>
 	);
 };
 
-export default contact;
+export default Contact;

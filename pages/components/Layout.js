@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import NavIcon from "./NavIcon";
 import Logo from "./Logo";
-import Image from "next/dist/client/image";
 import navStyles from "../../styles/Nav.module.scss";
 import footerStyles from "../../styles/Footer.module.scss";
 import Link from "next/link";
 import { useState } from "react";
 import Menu from "./Menu";
+import { useRouter } from "next/dist/client/router";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 function disableScroll() {
 	// Get the current page scroll position
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -20,6 +22,8 @@ function enableScroll() {
 }
 
 const Layout = ({ children }) => {
+	const router = useRouter();
+	const t = router.locale === "en" ? en : ar;
 	const [iconColor, setIconColor] = useState("#48A470");
 	const [toggled, setToggled] = useState(false);
 	const toggleMenu = () => {
@@ -42,7 +46,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Menu toggled={toggled} toggleMenu={toggleMenu} />
-			<nav className={navStyles.nav} >
+			<nav className={navStyles.nav}>
 				<NavIcon
 					toggleMenu={toggleMenu}
 					iconColor={iconColor}
@@ -56,21 +60,21 @@ const Layout = ({ children }) => {
 					<Logo textColor="#fff" />
 					{/* eslint-disable-next-line @next/next/link-passhref */}
 					<Link href="/forum" passHref>
-						<img src="/forum.png" alt="Forum" height="80" width="65"/>
+						<img src="/forum.png" alt="Forum" height="80" width="65" />
 					</Link>
 					<div className={footerStyles.links}>
-						<h3>روابط مهمة</h3>
+						<h3>{t.common.footer.linksTitle}</h3>
 						<Link href="/">
-							<a>الرئيسية</a>
+							<a>{t.common.footer.links[0]}</a>
 						</Link>
 						<Link href="/about">
-							<a>المنتدى</a>
+							<a>{t.common.footer.links[1]}</a>
 						</Link>
 						<Link href="/dataforchange">
-							<a>بيانات للتغيير</a>
+							<a>{t.common.footer.links[2]}</a>
 						</Link>
 						<Link href="/reports">
-							<a>التقارير</a>
+							<a>{t.common.footer.links[3]}</a>
 						</Link>
 					</div>
 				</div>

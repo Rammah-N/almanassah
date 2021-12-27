@@ -8,7 +8,7 @@ import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "./locales/ar";
 import { en } from "./locales/en";
-export default function Home() {
+function Home() {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
 	console.log(t);
@@ -93,3 +93,6 @@ export default function Home() {
 		</>
 	);
 }
+
+const Hello = () => <h1>Hello</h1>
+export default Hello

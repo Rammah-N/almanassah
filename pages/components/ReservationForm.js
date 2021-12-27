@@ -1,15 +1,20 @@
 import Image from "next/dist/client/image";
 import styles from "../../styles/Reservation.module.scss";
 import Link from "next/link";
-const register = () => {
+import { useRouter } from "next/dist/client/router";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
+const Register = () => {
+	const router = useRouter()
+	const t = router.locale === 'ar' ? ar : en
 	return (
 		<div className={styles.container}>
 			<div className={styles.slogan}>
-				<h1>المساحات</h1>
+				<h1>{t.spaces.bg}</h1>
 			</div>
 			<div className={styles.main}>
-				<h2>إحجز مساحة</h2>
-				<p>يمكنك حجز مساحة عن طريق ملأ الطلب من الرابط التالي</p>
+				<h2>{t.spaces.reserve}</h2>
+				<p>{t.spaces.reserveDescription}</p>
 				{/* <form>
 					<input type="text" placeholder="الإسم" name="name" required />
 					<input type="text" placeholder="الجهة" name="affinity" required />
@@ -38,11 +43,11 @@ const register = () => {
 					</button>
 				</form> */}
 				<Link href="https://forms.gle/ZhnSFT9fjaD16T8u8" passHref>
-					<button style={{padding: '1rem 2rem', border: 'none',}}>إحجز مساحة</button>
+					<button style={{padding: '1rem 2rem', border: 'none',}}>{t.spaces.reserveNow}</button>
 				</Link>
 			</div>
 		</div>
 	);
 };
 
-export default register;
+export default Register;

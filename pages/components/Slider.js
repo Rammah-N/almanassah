@@ -1,7 +1,7 @@
 import { Rerousel } from "rerousel";
 import { useRef } from "react";
 import UpdatesCard from "./UpdatesCard";
-export const Slider = ({ content }) => {
+ const Slider = ({ content }) => {
 	const customerLogo = useRef(null);
 
 	return (
@@ -23,3 +23,4 @@ export const Slider = ({ content }) => {
 		</div>
 	);
 };
+export default Slider

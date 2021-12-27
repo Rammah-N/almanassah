@@ -16,7 +16,12 @@ import {
 } from "./content";
 import Head from "next/head";
 import Filter from "../components/Filter";
+import { useRouter } from "next/dist/client/router";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 const Reports = ({ serverContent, jwt }) => {
+	const router = useRouter();
+	const t = router.locale === "en" ? en : ar;
 	const [selectedTitle, setSelectedTitle] = useState(null);
 	const [content, setContent] = useState(documents);
 	const selectTitle = (e) => {
@@ -66,7 +71,7 @@ const Reports = ({ serverContent, jwt }) => {
 						<p>
 							{selectedTitle
 								? hero_info[selectedTitle.id]
-								: "الرجاء إختيار إحدى العناوين لمعرفة المزيد"}
+								: t.reports.heroStockDescription}
 						</p>
 					</div>
 					<div className={styles.hero_titles}>
@@ -74,7 +79,7 @@ const Reports = ({ serverContent, jwt }) => {
 							className={styles.title}
 							id="bimonthly"
 							onClick={(e) => selectTitle(e)}>
-							<h1>نشرات شهرية</h1>
+							<h1>{t.reports.monthly}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -88,7 +93,7 @@ const Reports = ({ serverContent, jwt }) => {
 							className={styles.title}
 							id="advocacy"
 							onClick={(e) => selectTitle(e)}>
-							<h1>مناصرة</h1>
+							<h1>{t.reports.advocacy}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -102,7 +107,7 @@ const Reports = ({ serverContent, jwt }) => {
 							className={styles.title}
 							id="meetings"
 							onClick={(e) => selectTitle(e)}>
-							<h1>النشرات المتخصصة</h1>
+							<h1>{t.reports.meetings}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -116,7 +121,7 @@ const Reports = ({ serverContent, jwt }) => {
 							className={styles.title}
 							id="monthly"
 							onClick={(e) => selectTitle(e)}>
-							<h1>وثائق تتصل بالإنتقال</h1>
+							<h1>{t.reports.transitional}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -128,10 +133,7 @@ const Reports = ({ serverContent, jwt }) => {
 						</div>
 					</div>
 				</section>
-				<p className={styles.description}>
-					ستجد هنا جميع المستندات والتقارير المتعلقة بالمنتدى التفاكري للسلام,
-					من تقارير شهرية,نصف شهرية وتقارير إجتماعات وتقارير المناصرة
-				</p>
+				<p className={styles.description}>{t.reports.libraryDescription}</p>
 				{!jwt ? (
 					<section className={styles.documents}>
 						<div className={styles.documents_filters}>
@@ -139,28 +141,28 @@ const Reports = ({ serverContent, jwt }) => {
 								className={`${styles.btn} ${styles.btnAll}`}
 								onClick={(e) => filterContent(e)}
 								value="all">
-								عرض الكل
+								{t.reports.libraryFilters[0]}
 							</button>
 							<Filter
 								items={types}
-								title="نوع التقرير"
+								title={t.reports.libraryFilters[1]}
 								toggleFilter={toggleFilter}
 								selectFilter={filterContent}
 							/>
 							<Filter
-								title="الموقع"
+								title={t.reports.libraryFilters[2]}
 								items={locations}
 								toggleFilter={toggleFilter}
 								selectFilter={filterContent}
 							/>
 							<Filter
-								title="السنة"
+								title={t.reports.libraryFilters[3]}
 								items={years}
 								toggleFilter={toggleFilter}
 								selectFilter={filterContent}
 							/>
 							<Filter
-								title="الشهر"
+								title={t.reports.libraryFilters[4]}
 								items={months}
 								toggleFilter={toggleFilter}
 								selectFilter={filterContent}
@@ -188,7 +190,12 @@ const Reports = ({ serverContent, jwt }) => {
 							alignItems: "center",
 							marginBottom: "8rem",
 						}}>
-						<h1 style={{ fontSize: "2.5rem", marginBottom: "4rem", textAlign: 'center' }}>
+						<h1
+							style={{
+								fontSize: "2.5rem",
+								marginBottom: "4rem",
+								textAlign: "center",
+							}}>
 							الرجاء تسجيل الدخول للوصول إلى تقارير المنتدى التفاكري للسلام
 						</h1>
 						<button
@@ -199,7 +206,7 @@ const Reports = ({ serverContent, jwt }) => {
 								borderRadius: "4px",
 								color: "#fff",
 								fontWeight: "700",
-								cursor: 'pointer'
+								cursor: "pointer",
 							}}>
 							<Link href="/login">تسجيل الدخول</Link>
 						</button>

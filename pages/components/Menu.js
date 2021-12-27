@@ -4,8 +4,12 @@ import Link from "next/link";
 import styles from "../../styles/Menu.module.scss";
 import useAuth from "../../stores/AuthStore";
 import { destroyCookie, parseCookies } from "nookies";
-
+import { useRouter } from "next/dist/client/router";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 const Menu = ({ toggled, toggleMenu }) => {
+	const router = useRouter();
+	const t = router.locale === "en" ? en : ar;
 	const authStore = useAuth();
 	const cookies = parseCookies();
 	const handleLogout = () => {
@@ -18,19 +22,19 @@ const Menu = ({ toggled, toggleMenu }) => {
 		<div className={`${styles.menu} ${toggled ? styles.toggled : ""}`}>
 			<ul className={`${styles.links} ${toggled ? styles.fadeIn : ""}`}>
 				<li onClick={toggleMenu}>
-					<Link href="/">الرئيسية</Link>
+					<Link href="/">{t.common.menu[0]}</Link>
 				</li>
 				<li onClick={toggleMenu}>
-					<Link href="/forum">المنتدى التفاكري للسلام</Link>
+					<Link href="/forum">{t.common.menu[1]}</Link>
 				</li>
 				<li onClick={toggleMenu}>
-					<Link href="/reports">تـــقـــاريـــــر</Link>
+					<Link href="/reports">{t.common.menu[2]}</Link>
 				</li>
 				<li onClick={toggleMenu}>
-					<Link href="/dataforchange">بــيانات من أجل التغيير</Link>
+					<Link href="/dataforchange">{t.common.menu[3]}</Link>
 				</li>
 				<li onClick={toggleMenu}>
-					<Link href="/spaces">المساحات المفتوحة</Link>
+					<Link href="/spaces">{t.common.menu[4]}</Link>
 				</li>
 			</ul>
 			<div className={`${styles.socials} ${toggled ? styles.fadeIn : ""}`}>
@@ -61,19 +65,19 @@ const Menu = ({ toggled, toggleMenu }) => {
 					{!cookies.jwt ? (
 						<>
 							<li onClick={toggleMenu}>
-								<Link href="/register">حساب جديد</Link>
+								<Link href="/register">{t.common.newAccount}</Link>
 							</li>
 							<li onClick={toggleMenu}>
-								<Link href="/signin">تسجيل دخول</Link>
+								<Link href="/signin">{t.common.login}</Link>
 							</li>
 						</>
 					) : (
 						<li style={{ cursor: "pointer" }} onClick={() => handleLogout()}>
-							<a>تسجيل الخروج</a>
+							<a>{t.common.logout}</a>
 						</li>
 					)}
 					<li onClick={toggleMenu}>
-						<Link href="/contact">تواصل معنا</Link>
+						<Link href="/contact">{t.common.contactUs}</Link>
 					</li>
 				</div>
 				<div className={styles.translation}>

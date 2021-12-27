@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../../styles/UpdatesCard.module.scss";
-import Link from 'next/link'
+import Link from "next/link";
 const UpdatesCard = ({ title, tags, img, refs, link }) => {
 	return (
 		<div className={styles.card} ref={refs}>
