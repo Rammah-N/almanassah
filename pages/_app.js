@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 /* 
 TODO: 
   Pages: Homepage, About, Reports, Open Spaces, Contact, DFC, Registration Page, Login Page.

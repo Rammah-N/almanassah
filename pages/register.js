@@ -1,11 +1,10 @@
-import Image from "next/dist/client/image";
 import styles from "../styles/Register.module.scss";
 import Link from "next/link";
 import { parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 import router from "next/router";
 import axios from "axios";
-import Loader from "./components/Loader";
+import Loader from "../components/Loader";
 const Register = ({ jwt }) => {
 	const [loading, setLoading] = useState(false);
 	useEffect(() => {

@@ -1,10 +1,10 @@
 import styles from "../styles/Forum.module.scss";
 import Image from "next/dist/client/image";
-import Button from "./components/Button";
+import Button from "../components/Button";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-import { ar } from "./locales/ar";
-import { en } from "./locales/en";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 const Forum = () => {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../../styles/UpdatesCard.module.scss";
+import styles from "../styles/UpdatesCard.module.scss";
 import Link from "next/link";
 const UpdatesCard = ({ title, tags, img, refs, link }) => {
 	return (

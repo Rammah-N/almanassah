@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/dist/client/image";
 import Link from "next/dist/client/link";
-import styles from "../../styles/SpaceComponent.module.scss";
+import styles from "../styles/SpaceComponent.module.scss";
 const Space = ({ title, description, link, img, flip, map, reserveLink }) => {
 	return (
 		<div className={styles.space}>
@@ -9,10 +9,10 @@ const Space = ({ title, description, link, img, flip, map, reserveLink }) => {
 			<div className={styles.info} style={{ order: flip ? `${1}` : `${2}` }}>
 				<h2>{title}</h2>
 				<section className={styles.info_icons}>
-					<Image src="/icons/mute.svg" alt="Icon" width="20" height="20" />
-					<Image src="/icons/book.svg" alt="Icon" width="20" height="20" />
-					<Image src="/icons/cable.svg" alt="Icon" width="20" height="20" />
-					<Image src="/icons/wifi.svg" alt="Icon" width="20" height="20" />
+					<Image src="/icons/mute.svg" alt="Icon" width="30" height="30" />
+					<Image src="/icons/book.svg" alt="Icon" width="30" height="30" />
+					<Image src="/icons/cable.svg" alt="Icon" width="30" height="30" />
+					<Image src="/icons/wifi.svg" alt="Icon" width="30" height="30" />
 				</section>
 				{map ? (
 					<iframe

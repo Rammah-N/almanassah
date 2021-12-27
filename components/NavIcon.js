@@ -1,4 +1,4 @@
-import styles from "../../styles/Nav.module.scss";
+import styles from "../styles/Nav.module.scss";
 import { useState } from "react";
 const NavIcon = ({ toggleMenu, toggled, iconColor }) => {
 	const style = {

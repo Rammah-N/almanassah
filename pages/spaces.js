@@ -1,9 +1,9 @@
-import Space from "./components/Space";
+import Space from "../components/Space";
 import styles from "../styles/Spaces.module.scss";
-import ReservationForm from "./components/ReservationForm";
+import ReservationForm from "../components/ReservationForm";
 import { useRouter } from "next/dist/client/router";
-import { ar } from "./locales/ar";
-import { en } from "./locales/en";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 const Spaces = () => {
 	const router = useRouter()
 	const t = router.locale === 'ar' ? ar : en

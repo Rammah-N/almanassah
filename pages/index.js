@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "../styles/Home.module.scss";
 import Image from "next/image";
-import Button from "./components/Button";
+import Button from "../components/Button";
 import Link from "next/dist/client/link";
-import { Slider } from "./components/Slider";
+import  Slider  from "../components/Slider";
 import Head from "next/head";
-import { useRouter } from "next/dist/client/router";
-import { ar } from "./locales/ar";
-import { en } from "./locales/en";
-function Home() {
+import { useRouter } from "next/router";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
+export default function Home() {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
 	console.log(t);
@@ -38,8 +38,7 @@ function Home() {
 				<title>المنصة</title>
 			</Head>
 			<main className={styles.home}>
-				{/*Hero Section */}
-
+				Hero Section
 				<section className={styles.home_hero}>
 					<h1>
 						{t.home.heroTitle[0]}
@@ -70,7 +69,6 @@ function Home() {
 						</div>
 					</div>
 				</section>
-
 				{/* Vision Section */}
 				<section className={styles.home_vision}>
 					<Image
@@ -81,18 +79,16 @@ function Home() {
 					/>
 					<h1>{t.home.handshakeGoal}</h1>
 				</section>
-
 				{/* CTA Section */}
 				<section className={styles.home_cta}>
 					<p>{t.home.registerDescription}</p>
-					<Button color="#10324F">
-						<Link href="/register">{t.common.registerNow}</Link>
-					</Button>
+					<Link href="/register" passHref>
+						<Button color="#10324F">{t.common.registerNow}</Button>
+					</Link>
 				</section>
 			</main>
 		</>
 	);
 }
 
-const Hello = () => <h1>Hello</h1>
-export default Hello
+const Hello = () => <h1>Hello</h1>;

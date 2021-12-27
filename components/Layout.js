@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import NavIcon from "./NavIcon";
 import Logo from "./Logo";
-import navStyles from "../../styles/Nav.module.scss";
-import footerStyles from "../../styles/Footer.module.scss";
+import navStyles from "../styles/Nav.module.scss";
+import footerStyles from "../styles/Footer.module.scss";
 import Link from "next/link";
 import { useState } from "react";
 import Menu from "./Menu";
@@ -78,7 +78,7 @@ const Layout = ({ children }) => {
 						</Link>
 					</div>
 				</div>
-				<p>2021 © كل الحقوق ملكية المنتدى التفاكري للسلام</p>
+				<p>{t.common.copyrights}</p>
 			</footer>
 		</>
 	);

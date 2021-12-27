@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../../styles/Filter.module.scss";
+import styles from "../styles/Filter.module.scss";
 import { useState } from "react";
 const Filter = ({ title, items, toggleFilter, selectFilter }) => {
 

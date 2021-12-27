@@ -1,7 +1,7 @@
 import styles from "../styles/Contact.module.scss";
 import { useRouter } from "next/dist/client/router";
-import { ar } from "./locales/ar";
-import { en } from "./locales/en";
+import { ar } from "../locales/ar";
+import { en } from "../locales/en";
 const Contact = () => {
 	const router = useRouter();
 	const t = router.locale === "ar" ? ar : en;

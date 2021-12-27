@@ -1,5 +1,5 @@
 import Image from "next/dist/client/image"
-import styles from '../../styles/ReportDocument.module.scss'
+import styles from '../styles/ReportDocument.module.scss'
 const ReportDocument = ({type, title, img, month, year}) => {
   return (
     <div className={styles.report}>

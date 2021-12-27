@@ -1,5 +1,5 @@
 import Image from "next/dist/client/image";
-import styles from "../../styles/Reservation.module.scss";
+import styles from "../styles/Reservation.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";

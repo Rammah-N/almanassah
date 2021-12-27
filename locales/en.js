@@ -129,5 +129,6 @@ export const en = {
 		email: "E-Mail",
 		phone: "Phone Number",
 		submit: "Submit",
+		copyrights: "Copyrights © 2022 The Framework Group. All rights reserved.",
 	},
 };

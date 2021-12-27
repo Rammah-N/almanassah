@@ -1,7 +1,7 @@
 import styles from "../styles/DFC.module.scss";
 import Link from "next/link";
 import Image from "next/dist/client/image";
-import Button from "./components/Button";
+import Button from "../components/Button";
 import Head from "next/head";
 const DataForChange = () => {
 	return (

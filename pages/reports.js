@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../../styles/Reports.module.scss";
-import filterStyles from "../../styles/Filter.module.scss";
-import Image from "next/dist/client/image";
-import { useState, useEffect } from "react";
+import styles from "../styles/Reports.module.scss";
+import filterStyles from "../styles/Filter.module.scss";
+import { useState } from "react";
 import { parseCookies } from "nookies";
 import ReportDocument from "../components/ReportDocument";
 import Link from "next/link";
@@ -13,7 +12,7 @@ import {
 	locations,
 	years,
 	months,
-} from "./content";
+} from "../api/content";
 import Head from "next/head";
 import Filter from "../components/Filter";
 import { useRouter } from "next/dist/client/router";

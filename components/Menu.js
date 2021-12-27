@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../styles/Menu.module.scss";
-import useAuth from "../../stores/AuthStore";
+import styles from "../styles/Menu.module.scss";
+import useAuth from "../stores/AuthStore";
 import { destroyCookie, parseCookies } from "nookies";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";

@@ -1,15 +1,12 @@
-import Image from "next/dist/client/image";
 import styles from "../styles/Signin.module.scss";
-import Link from "next/link";
 import { useState } from "react";
 import { setCookie } from "nookies";
 import Router from "next/router";
-import axios from "axios";
 import useAuth from "../stores/AuthStore";
 import { useEffect } from "react";
 import router from "next/router";
 import { parseCookies } from "nookies";
-import Loader from "./components/Loader";
+import Loader from "../components/Loader";
 const SignIn = ({ jwt }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
