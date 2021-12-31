@@ -1,29 +1,45 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../styles/Reports.module.scss";
-import filterStyles from "../styles/Filter.module.scss";
-import { useState, useEffect } from "react";
-import { parseCookies } from "nookies";
 import axios from "axios";
-import ReportDocument from "../components/ReportDocument";
-import Link from "next/link";
-import {
-	hero_info,
-	documents,
-	types,
-	locations,
-	years,
-	months,
-} from "../api/content";
-import Head from "next/head";
-import Filter from "../components/Filter";
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
+import Link from "next/link";
+import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
+import {
+	documents,
+	hero_info,
+	locations,
+	months,
+	types,
+	years,
+} from "../api/content";
+import Filter from "../components/Filter";
+import ReportDocument from "../components/ReportDocument";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
-const Reports = ({ serverContent, jwt }) => {
+import filterStyles from "../styles/Filter.module.scss";
+import styles from "../styles/Reports.module.scss";
+const Reports = ({ serverData }) => {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
 	const [selectedTitle, setSelectedTitle] = useState(null);
 	const [content, setContent] = useState(documents);
+	console.log(serverData);
+	// const jwtt = parseCookies().jwt
+	/* 	useEffect(() => {
+		axios
+			.get(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
+				headers: {
+					Authorization: `Bearer ${jwtt}`,
+				},
+			})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	}, []); */
 	const selectTitle = (e) => {
 		const title = e.target;
 		if (title.tagName == "H1") {
@@ -60,13 +76,19 @@ const Reports = ({ serverContent, jwt }) => {
 	const toggleFilter = (e) => {
 		e.target.parentNode.parentNode.classList.toggle(filterStyles.shown);
 	};
-	useEffect(() => {
-		axios(`${process.env.NEXT_PUBLIC_API_URL}/reports`).then(res => {
-			console.log(res);
-		}).catch(error => {
-			console.error(error)
-		})
-	}, [jwt])
+/* 	useEffect(() => {
+		axios
+			.get(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
+				headers: { Authorization: `Bearer ${jwt}` },
+			})
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}, []); */
+	console.log(t.reports.advocacyDescription);
 	return (
 		<>
 			<Head>
@@ -77,14 +99,14 @@ const Reports = ({ serverContent, jwt }) => {
 					<div className={styles.hero_info}>
 						<p>
 							{selectedTitle
-								? hero_info[selectedTitle.id]
+								? t.reports[`${selectedTitle.id}Description`]
 								: t.reports.heroStockDescription}
 						</p>
 					</div>
 					<div className={styles.hero_titles}>
 						<div
 							className={styles.title}
-							id="bimonthly"
+							id="monthly"
 							onClick={(e) => selectTitle(e)}>
 							<h1>{t.reports.monthly}</h1>
 							<div className={styles.arrow}>
@@ -112,9 +134,9 @@ const Reports = ({ serverContent, jwt }) => {
 						</div>
 						<div
 							className={styles.title}
-							id="meetings"
+							id="special"
 							onClick={(e) => selectTitle(e)}>
-							<h1>{t.reports.meetings}</h1>
+							<h1>{t.reports.special}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -126,9 +148,9 @@ const Reports = ({ serverContent, jwt }) => {
 						</div>
 						<div
 							className={styles.title}
-							id="monthly"
+							id="bimonthly"
 							onClick={(e) => selectTitle(e)}>
-							<h1>{t.reports.transitional}</h1>
+							<h1>{t.reports.bimonthly}</h1>
 							<div className={styles.arrow}>
 								<img
 									src="/icons/arrow.svg"
@@ -141,7 +163,7 @@ const Reports = ({ serverContent, jwt }) => {
 					</div>
 				</section>
 				<p className={styles.description}>{t.reports.libraryDescription}</p>
-				{jwt ? (
+				{true ? (
 					<section className={styles.documents}>
 						<div className={styles.documents_filters}>
 							<button
@@ -225,19 +247,27 @@ const Reports = ({ serverContent, jwt }) => {
 };
 // const {publicRuntimeConfig} = getConfig();
 // console.log(publicRuntimeConfig);
-
-export async function getServerSideProps(ctx) {
-	const jwt =
-		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
-	const api = process.env.NEXT_PUBLIC_API_URL;
-	const res = await fetch(`${api}/dfc`);
-	const content = await res.json();
+export async function getStaticProps() {
+	const jwt = parseCookies().jwt
+	await axios
+		.get("https://admin.almanassah-sd.org/reports", {
+			headers: {
+				Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjQwNjI1MzAxLCJleHAiOjE2NDMyMTczMDF9.rxK_wwxK-jHhm_kLgmpiHa-tzYDy3rrwdUY7znmYubc`,
+			},
+		})
+		.then((resp) => {
+			console.log(resp);
+			return resp;
+		})
+		.catch((error) => {
+			console.error(`Error from server is: ${error}`);
+		});
 	return {
 		props: {
-			serverContent: content,
-			jwt: jwt,
+			serverData: 'hello',
 		},
 	};
 }
+
 
 export default Reports;

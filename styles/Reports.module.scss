@@ -144,7 +144,9 @@
 				background-color: $fwg-yellow;
 				border: none;
 				cursor: pointer;
-				width: 120px;
+				display: flex;
+				justify-content: center;
+				width: 100%;
 				&:hover {
 					border: none;
 				}
@@ -154,7 +156,7 @@
 		&_content {
 			display: grid;
 			margin: 20rem 0;
-			grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+			grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
 			justify-content: center;
 			align-items: center;
 			justify-items: center;
@@ -220,7 +222,7 @@
 			&_content {
 				display: grid;
 				margin: 10rem 0;
-				grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+				grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
 				justify-content: space-evenly;
 				align-items: center;
 				justify-items: center;

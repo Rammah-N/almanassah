@@ -1,21 +1,24 @@
 import Space from "../components/Space";
 import styles from "../styles/Spaces.module.scss";
 import ReservationForm from "../components/ReservationForm";
+import { useEffect } from "react";
+import { parseCookies } from "nookies";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
-const Spaces = () => {
-	const router = useRouter()
-	const t = router.locale === 'ar' ? ar : en
+const Spaces = ({ jwt }) => {
+	const router = useRouter();
+	const t = router.locale === "ar" ? ar : en;
 
+	useEffect(() => {
+		if (!jwt) {
+			router.push("/");
+		}
+	}, []);
 	return (
 		<main className={styles.spaces}>
-			<h1 className={styles.title}>
-				{t.spaces.title}
-			</h1>
-			<p className={styles.description}>
-			{t.spaces.description}
-			</p>
+			<h1 className={styles.title}>{t.spaces.title}</h1>
+			<p className={styles.description}>{t.spaces.description}</p>
 			<section className={styles.container}>
 				<Space
 					img="/images/space-1.png"
@@ -55,5 +58,17 @@ const Spaces = () => {
 		</main>
 	);
 };
-
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	/* const api = process.env.NEXT_PUBLIC_API_URL;
+	const res = await fetch(`${api}/dfc`);
+	const content = await res.json(); */
+	return {
+		props: {
+			// serverContent: content,
+			jwt: jwt,
+		},
+	};
+}
 export default Spaces;

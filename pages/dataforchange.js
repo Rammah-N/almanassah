@@ -1,9 +1,18 @@
 import styles from "../styles/DFC.module.scss";
 import Link from "next/link";
 import Image from "next/dist/client/image";
+import { parseCookies } from "nookies";
+import { useEffect } from "react";
 import Button from "../components/Button";
 import Head from "next/head";
-const DataForChange = () => {
+import { useRouter } from "next/dist/client/router";
+const DataForChange = ({ jwt }) => {
+	const router = useRouter();
+	useEffect(() => {
+		if (!jwt) {
+			router.push("/");
+		}
+	}, []);
 	return (
 		<>
 			<Head>
@@ -17,11 +26,11 @@ const DataForChange = () => {
 							<h1>:عدد الإستبيانات</h1>
 							<p>150 إستبيان على مر 7 شهور في 11 ولاية</p>
 							<div className={styles.chart_figure}>
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
-										<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
 							</div>
 						</div>
 					</div>
@@ -123,5 +132,17 @@ const DataForChange = () => {
 		</>
 	);
 };
-
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	/* const api = process.env.NEXT_PUBLIC_API_URL;
+	const res = await fetch(`${api}/dfc`);
+	const content = await res.json(); */
+	return {
+		props: {
+			// serverContent: content,
+			jwt: jwt,
+		},
+	};
+}
 export default DataForChange;

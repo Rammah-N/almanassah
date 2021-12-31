@@ -50,16 +50,16 @@ export const en = {
 		heroStockDescription: "Please select one of the titles to find out more",
 		monthly: "Monthly Newsletters",
 		monthlyDescription:
-			"The coordination team works on the participation of stakeholders in the forum and civil society actors on bi-monthly reports (every 14 days), dealing with the most important updates related to: the political context - economic conditions - security conditions - updates related to civil society and grassroots groups - emergency issues . And that was in the different areas of the think tank (the states of the Darfur region - the states of the eastern Sudan region - the state of South Kordofan “the areas of control of the Sudanese government” - the state of the Blue Nile “the areas of control of the Sudanese government” - the areas of control of the Sudan People’s Liberation Movement - North, in the two states “Blue Nile” and South Kordofan)",
-		advocacy: "Advocacy",
+			"Through this bulletin, the FWM coordination team reviews the most important and urgent issues and developments related to the situation in the government controlled areas and the areas under the armed movements control. These bulletins contain the most important analysis related to the political, economic and security situation and urgent issues from the contributors and civil society actors’ point of view.",
+			advocacy: "Advocacy",
 		advocacyDescription:
 			"This bulletin, which is issued every two months by the coordination team of the Forum, reviews the most important issues that require urgent interventions and advocated by civil society at the national or regional level, or relevant international organizations, which are reached by analyzing the results of the recommendations of the regional and state meetings and activities that It is implemented by the coordination team in its work areas, also through interviews and consultative sessions with the forum's contributors and civil society actors/s.",
-		meetings: "Specialized Bulletins",
-		meetingsDescription:
-			"The Thinking Forum issues a quarterly bulletin that deals with one of the effective and influential issues at the national level through conducting interviews and consultative sessions to solicit the opinions of the forum's contributors or actors on these issues.",
-		transitional: "Transitional Documents",
-		transitionalDescription:
-			"Through this bulletin, the coordination team of The Framework Group reviews the most important urgent issues and developments related to the situation in the areas of control of the Sudanese government and the armed struggle movements and the civil society in these areas.",
+		special: "Specialized Bulletins",
+		specialDescription:
+			"FWM publishes quarterly bulletins that deal with one of the effective and influential issues at the national level through interviews and consultative sessions to seek the contributors and actors views on these issues.",
+		bimonthly: "Bi-Monthly reports",
+		bimonthlyDescription:
+			"The coordination team works with the contributors and civil society actors on bi-monthly reports (every 14 days), that deal with the most important updates related to the political context, economic and security situation, updates related to civil society and grassroots groups and urgent issues, of the different FWM’s work areas (Darfur - Eastern Sudan - South Kordofan - Blue Nile [Government-controlled and SPLM/N-controlled areas])",
 		libraryDescription:
 			"Here you will find all documents and reports related to The Framework Group, including monthly, bi-monthly, meeting and advocacy reports.",
 		libraryFilters: ["Show All", "Report Type", "Location", "Year", "Month"],
@@ -120,6 +120,7 @@ export const en = {
 		],
 		contactUs: "Contact Us",
 		login: "Login",
+		logout: "Logout",
 		newAccount: "New Account",
 		logo: "Platform",
 		footer: {

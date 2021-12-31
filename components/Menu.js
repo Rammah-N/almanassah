@@ -7,7 +7,8 @@ import { destroyCookie, parseCookies } from "nookies";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
-const Menu = ({ toggled, toggleMenu }) => {
+import { useEffect } from "react";
+const Menu = ({ toggled, toggleMenu, jwt }) => {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
 	const authStore = useAuth();
@@ -27,40 +28,21 @@ const Menu = ({ toggled, toggleMenu }) => {
 				<li onClick={toggleMenu}>
 					<Link href="/forum">{t.common.menu[1]}</Link>
 				</li>
-				<li onClick={toggleMenu}>
-					<Link href="/reports">{t.common.menu[2]}</Link>
-				</li>
-				<li onClick={toggleMenu}>
-					<Link href="/dataforchange">{t.common.menu[3]}</Link>
-				</li>
-				<li onClick={toggleMenu}>
-					<Link href="/spaces">{t.common.menu[4]}</Link>
-				</li>
+				{cookies.jwt ? (
+					<>
+						<li onClick={toggleMenu}>
+							<Link href="/reports">{t.common.menu[2]}</Link>
+						</li>
+						<li onClick={toggleMenu}>
+							<Link href="/dataforchange">{t.common.menu[3]}</Link>
+						</li>
+						<li onClick={toggleMenu}>
+							<Link href="/spaces">{t.common.menu[4]}</Link>
+						</li>
+					</>
+				) : null}
 			</ul>
 			<div className={`${styles.socials} ${toggled ? styles.fadeIn : ""}`}>
-				<div className={styles.accounts}>
-					<img
-						src="/icons/facebook.svg"
-						height="25"
-						width="25"
-						alt="Facebook"
-						className={styles.icon}
-					/>
-					<img
-						src="/icons/twitter.svg"
-						height="25"
-						width="25"
-						alt="twitter"
-						className={styles.icon}
-					/>
-					<img
-						src="/icons/linkedin.svg"
-						height="25"
-						width="25"
-						alt="linkedin"
-						className={styles.icon}
-					/>
-				</div>
 				<div className={styles.users}>
 					{!cookies.jwt ? (
 						<>
@@ -96,5 +78,19 @@ const Menu = ({ toggled, toggleMenu }) => {
 		</div>
 	);
 };
+
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	/* const api = process.env.NEXT_PUBLIC_API_URL;
+	const res = await fetch(`${api}/dfc`);
+	const content = await res.json(); */
+	return {
+		props: {
+			// serverContent: content,
+			jwt: jwt,
+		},
+	};
+}
 
 export default Menu;

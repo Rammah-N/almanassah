@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps, jwt }) {
 	);
 }
 export async function getServerSideProps(ctx) {
+	console.log(jwt);
 	const jwt =
 		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
 	return {

@@ -5,12 +5,14 @@
 	align-items: flex-end;
 	text-align: right;
 	direction: ltr;
+	align-items: center;
+	width: 100%;
 	h3 {
 		color: $fwg-yellow;
 		background-color: $fwg-green;
 		padding: 5px 1rem;
     font-weight: 500;
-		font-size: 1rem;
+		font-size: 1.2rem;
 		margin-bottom: 1rem;
 	}
   h2 {
