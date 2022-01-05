@@ -6,12 +6,22 @@ import Link from "next/dist/client/link";
 import Slider from "../components/Slider";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import axios from "axios";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
-export default function Home() {
+import { parseCookies } from "nookies";
+export default function Home({ serverContent }) {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
-	console.log(t);
+	const {
+		Goals: goals,
+		Header: header,
+		Updates: updates,
+		about,
+	} = serverContent;
+	console.log(serverContent);
+	console.log(goals);
+	console.log(header);
 	const data = [
 		{
 			title: "المناصرة, ما هي وما أهدافها",
@@ -50,23 +60,23 @@ export default function Home() {
 					<div></div>
 				</section>
 				<section className={styles.home_updates}>
-					<Slider content={data} />
+					<Slider content={updates.reports} />
 				</section>
 				{/* Goals Section */}
 				<section className={styles.home_goals}>
 					<p className={styles.subtitle}>{t.home.descriptionSubtitle}</p>
-					<p className={styles.description}>{t.home.description}</p>
+					<p className={styles.description}>{goals.goals[0].main}</p>
 					<div className={styles.goals_container}>
 						<div className={styles.home_goals_goal}>
-							<p>{t.home.goals[0]}</p>
+							<p>{goals.goals[0].goal1}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 						<div className={styles.home_goals_goal}>
-							<p>{t.home.goals[1]}</p>
+							<p>{goals.goals[0].goal2}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 						<div className={styles.home_goals_goal}>
-							<p>{t.home.goals[2]}</p>
+							<p>{goals.goals[0].goal3}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 					</div>
@@ -92,5 +102,22 @@ export default function Home() {
 		</>
 	);
 }
-
-const Hello = () => <h1>Hello</h1>;
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	const locale = ctx.locale === "ar" ? "ar-SD" : "en";
+	const content = await axios(
+		`https://admin.almanassah-sd.org/home?_locale=${locale}`
+	)
+		.then((res) => res.data)
+		.catch((error) => {
+			console.error(error);
+		});
+	const data = content;
+	return {
+		props: {
+			// jwt: jwt,
+			serverContent: data,
+		},
+	};
+}

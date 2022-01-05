@@ -1,21 +1,23 @@
 import { Rerousel } from "rerousel";
 import { useRef } from "react";
 import UpdatesCard from "./UpdatesCard";
- const Slider = ({ content }) => {
+import documentIcon from "../public/icons/documentIcon.svg";
+const Slider = ({ content }) => {
 	const customerLogo = useRef(null);
-
+	console.log(documentIcon.src);
 	return (
 		<div>
 			<Rerousel itemRef={customerLogo} interval={2500}>
 				{content.map((item, i) => {
+					console.log(item)
 					return (
 						<UpdatesCard
 							refs={i == 0 ? customerLogo : null}
 							key={i}
-							title={item.title}
-							tags={item.tags}
-							img={item.img}
-              link={item.link}
+							title={item.Title}
+							// tags={item.tags}
+							img={documentIcon.src}
+							link={`https://admin.almanassah-sd.org${item.Pdf.url}`}
 						/>
 					);
 				})}
@@ -23,4 +25,4 @@ import UpdatesCard from "./UpdatesCard";
 		</div>
 	);
 };
-export default Slider
+export default Slider;

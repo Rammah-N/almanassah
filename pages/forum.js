@@ -5,36 +5,39 @@ import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
-const Forum = () => {
+import axios from "axios";
+import { parseCookies } from "nookies";
+const Forum = ({ serverContent }) => {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
+	const { activities, background, header, role } = serverContent;
+	console.log(role);
+	console.log(activities);
+	console.log(background);
+	console.log(header);
 	return (
 		<main className={styles.forum}>
 			<section className={styles.hero}>
-				<p>{t.fwm.heroDescription}</p>
+				<p>{header.content}</p>
 				<div className={styles.hero_logo}>
-					<h1>
-						{t.fwm.heroTitle[0]}
-						<br />
-						{t.fwm.heroTitle[1]}
-						<br />
-						{t.fwm.heroTitle[2]}
-					</h1>
-					<div></div>
+					<Image
+						width="250"
+						height="250"
+						src={`https://admin.almanassah-sd.org${header.image.url}`}
+						alt="Logo"
+					/>
 				</div>
 			</section>
 			<section className={styles.intro}>
 				<div className={styles.cover}>
 					<div className={styles.cover_hollow}></div>
 					<div className={styles.cover_filled}>
-						<h1>{t.fwm.background}</h1>
+						<h1>{background.title}</h1>
 					</div>
 				</div>
 				<div className={styles.intro_info} style={{ lineHeight: "1.6" }}>
-					<p>{t.fwm.backgroundDescription[0]}</p>
-					<p style={{ marginTop: "1.5rem" }}>
-						{t.fwm.backgroundDescription[1]}
-					</p>
+					<p>{background.content}</p>
+					
 				</div>
 			</section>
 			<section className={styles.activities}>
@@ -42,29 +45,23 @@ const Forum = () => {
 					<h1>{t.fwm.activitiesTitle}</h1>
 				</div>
 				<div className={styles.activity}>
-					<h3>{t.fwm.activities[0]}</h3>
-					<h3>{t.fwm.activities[1]}</h3>
-					<h3>{t.fwm.activities[2]}</h3>
-					<h3>{t.fwm.activities[3]}</h3>
-				</div>
-				<div className={styles.activity}>
-					<h3>{t.fwm.activities[4]}</h3>
-					<h3>{t.fwm.activities[5]}</h3>
-					<h3>{t.fwm.activities[6]}</h3>
+					{activities.activities.map((item) => (
+						<h3 key={item}>{item.activity}</h3>
+					))}
 				</div>
 			</section>
 			<section className={styles.role}>
 				<Image
-					src="/images/Role.svg"
+					src={`https://admin.almanassah-sd.org${role.image.url}`}
 					height="380"
 					width="350"
 					alt="Roles of FWG"
 				/>
 				<div className={styles.role_info}>
 					<div className={styles.heading}>
-						<h1>{t.fwm.role}</h1>
+						<h1>{role.title}</h1>
 					</div>
-					<p>{t.fwm.roleDescription}</p>
+					<p>{role.content}</p>
 				</div>
 			</section>
 			<section className={styles.cta}>
@@ -76,5 +73,23 @@ const Forum = () => {
 		</main>
 	);
 };
-
+export async function getServerSideProps(ctx) {
+	const jwt =
+		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
+	const locale = ctx.locale === "ar" ? "ar-SD" : "en";
+	const content = await axios(
+		`https://admin.almanassah-sd.org/ptf?_locale=${locale}`
+	)
+		.then((res) => res.data)
+		.catch((error) => {
+			console.error(error);
+		});
+	const data = content;
+	return {
+		props: {
+			// jwt: jwt,
+			serverContent: data,
+		},
+	};
+}
 export default Forum;

@@ -4,5 +4,8 @@ module.exports = {
     locales: ['ar', 'en'],
     defaultLocale: 'ar',
     localeDetection: false,
-  }
+  },
+  images: {
+    domains: ['https://admin.almanassah-sd.org'],
+  },
 }

@@ -252,7 +252,7 @@ export async function getStaticProps() {
 	await axios
 		.get("https://admin.almanassah-sd.org/reports", {
 			headers: {
-				Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjQwNjI1MzAxLCJleHAiOjE2NDMyMTczMDF9.rxK_wwxK-jHhm_kLgmpiHa-tzYDy3rrwdUY7znmYubc`,
+				Authorization: `Bearer ${jwt}`,
 			},
 		})
 		.then((resp) => {
