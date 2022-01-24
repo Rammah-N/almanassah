@@ -5,8 +5,8 @@ import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
 const Register = () => {
-	const router = useRouter()
-	const t = router.locale === 'ar' ? ar : en
+	const router = useRouter();
+	const t = router.locale === "ar" ? ar : en;
 	return (
 		<div className={styles.container}>
 			<div className={styles.slogan}>
@@ -16,30 +16,37 @@ const Register = () => {
 				<h2>{t.spaces.reserve}</h2>
 				<p>{t.spaces.reserveDescription}</p>
 				<form>
-					<input type="text" placeholder="الإسم" name="name" required />
-					<input type="text" placeholder="الجهة" name="affinity" required />
+					<input type="text" placeholder={t.common.name} name="name" required />
 					<input
 						type="text"
-						placeholder="الهدف من الحجز"
+						placeholder={t.common.affinity}
+						name="affinity"
+						required
+					/>
+					<input
+						type="text"
+						placeholder={t.spaces.form.reason}
 						name="reason"
 						required
 					/>
-					<label>إختر المساحة</label>
+					<label>{t.spaces.form.choose}</label>
 					<select name="spaces" id="spaces">
-						<option value="portsudan">بورتسودان</option>
-						<option value="kordufan">كردفان</option>
-						<option value="darfur">دارفور</option>
+						{t.spaces.form.options.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
 					</select>
 					<input
 						type="email"
-						placeholder="البريد الإلكتروني"
+						placeholder={t.common.email}
 						name="email"
 						required
 					/>
-					<label htmlFor="date">تاريخ الحجز</label>
+					<label htmlFor="date">{t.spaces.form.date}</label>
 					<input type="date" name="date" />
 					<button type="submit" className={styles.submit}>
-						الحجز الآن
+						{t.spaces.form.reserve}
 					</button>
 				</form>
 				{/* <Link href="https://forms.gle/ZhnSFT9fjaD16T8u8" passHref>

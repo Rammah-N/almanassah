@@ -4,12 +4,10 @@ import UpdatesCard from "./UpdatesCard";
 import documentIcon from "../public/icons/documentIcon.svg";
 const Slider = ({ content }) => {
 	const customerLogo = useRef(null);
-	console.log(documentIcon.src);
 	return (
 		<div>
 			<Rerousel itemRef={customerLogo} interval={2500}>
 				{content.map((item, i) => {
-					console.log(item)
 					return (
 						<UpdatesCard
 							refs={i == 0 ? customerLogo : null}

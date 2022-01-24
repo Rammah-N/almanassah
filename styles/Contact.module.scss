@@ -39,6 +39,10 @@
 				margin-bottom: 2rem;
 				align-self: flex-end;
         width: 80%;
+				&:lang(en) {
+					align-self: flex-start;
+					text-align: left;
+				}
 			}
 			input {
         border: none;
@@ -53,6 +57,9 @@
 				border: 1px solid #ecf0f1;
 				background-color: #0f504f;
 				text-align: right;
+				&:lang(en) {
+					text-align: left;
+				}
 				&:focus {
 					outline: none;
 				}

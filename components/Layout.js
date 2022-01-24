@@ -9,6 +9,8 @@ import Menu from "./Menu";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
+import fwmLogoEn from "../public/images/fwm-logo-en.svg";
+import Image from "next/image";
 function disableScroll() {
 	// Get the current page scroll position
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -46,6 +48,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Menu toggled={toggled} toggleMenu={toggleMenu} />
+
 			<nav className={navStyles.nav}>
 				<NavIcon
 					toggleMenu={toggleMenu}
@@ -60,7 +63,11 @@ const Layout = ({ children }) => {
 					<Logo textColor="#fff" />
 					{/* eslint-disable-next-line @next/next/link-passhref */}
 					<Link href="/forum" passHref>
-						<img src="/forum.png" alt="Forum" height="80" width="65" />
+						{router.locale === "ar" ? (
+							<Image src="/forum.png" alt="Forum" height="80" width="65" />
+						) : (
+							<Image src={fwmLogoEn} alt="Forum" height="80" width="65" />
+						)}
 					</Link>
 					<div className={footerStyles.links}>
 						<h3>{t.common.footer.linksTitle}</h3>

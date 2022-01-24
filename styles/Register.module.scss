@@ -58,6 +58,9 @@
 					border-radius: 5px;
 					border: 1px solid #dce2e4;
 					transition: all 0.2s;
+					&:lang(en) {
+						text-align: left;
+					}
 					&:focus {
 						outline: none;
 						border: 1px solid #aeb3b4;
@@ -76,6 +79,9 @@
 					border: 1px solid #dce2e4;
 					color: #dce2e4;
 					height: 100px;
+					&:lang(en) {
+						text-align: left;
+					}
 					&::placeholder {
 						color: #c9c9c9;
 					}

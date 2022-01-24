@@ -6,6 +6,6 @@ module.exports = {
     localeDetection: false,
   },
   images: {
-    domains: ['https://admin.almanassah-sd.org'],
+    domains: ['admin.almanassah-sd.org'],
   },
 }

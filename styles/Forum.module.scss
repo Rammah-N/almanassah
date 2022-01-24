@@ -1,5 +1,12 @@
 @import "./variables.scss";
 .forum {
+	&:lang(ar) {
+		direction: rtl;
+	}
+	&:lang(en) {
+		direction: ltr;
+	}
+
 	.hero {
 		width: 100%;
 		height: calc(100vh - 150px);
@@ -7,16 +14,18 @@
 		display: flex;
 		align-items: center;
 		&_logo {
-			width: 50%;
+			width: 40%;
 			color: $fwg-yellow;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			align-self: stretch;
+
 			h1 {
 				text-align: center;
 				font-size: 8rem;
 			}
+
 			&_border {
 				width: 4px;
 				margin-left: 25px;
@@ -24,6 +33,7 @@
 				background-color: $fwg-yellow;
 			}
 		}
+
 		p {
 			width: 50%;
 			font-size: 3rem;
@@ -31,6 +41,13 @@
 			color: #fff;
 			font-weight: 700;
 			margin-left: 5rem;
+			&:lang(ar) {
+				order: 1;
+			}
+			&:lang(en) {
+				order: 2;
+				margin-left: 0;
+			}
 		}
 	}
 	.intro {
@@ -38,9 +55,11 @@
 		justify-content: space-evenly;
 		margin: 8rem 0;
 		align-items: center;
+
 		.cover {
 			position: relative;
 			display: flex;
+
 			&_filled {
 				background-color: $fwg-green;
 				color: $fwg-yellow;
@@ -49,12 +68,15 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+
 				h1 {
 					font-size: 7rem;
 					font-weight: 700;
 					transform: rotate(-90deg);
+					
 				}
 			}
+
 			&_hollow {
 				height: 500px;
 				width: 300px;
@@ -63,12 +85,21 @@
 				bottom: -30px;
 				left: -30px;
 			}
+			&:lang(ar) {
+				order: 2;
+			}
+			&:lang(en) {
+				order: 1;
+			}
 		}
 
 		&_info {
 			font-size: 2rem;
 			text-align: right;
 			width: 50%;
+			&:lang(en) {
+				text-align: left;
+			}
 		}
 	}
 
@@ -99,15 +130,33 @@
 		display: flex;
 		justify-content: space-evenly;
 		margin: 15rem 0;
+		&:lang(ar) {
+			direction: ltr;
+		}
+		&:lang(en) {
+			direction: rtl;
+		}
 		&_info {
 			display: flex;
 			flex-direction: column;
-			align-items: flex-end;
+			align-items: flex-start;
 			width: 50%;
+			&:lang(en) {
+				order: 1 !important;
+				align-items: flex-end;
+			}
+			&:lang(ar) {
+				align-items: flex-end;
+			}
 			p {
 				text-align: right;
 				font-size: 2rem;
 				line-height: 1.5;
+				direction: rtl;
+				&:lang(en) {
+					text-align: left;
+					direction: ltr;
+				}
 			}
 		}
 	}
@@ -122,6 +171,14 @@
 			font-weight: 700;
 			text-align: right;
 			width: 50%;
+			order: 1 !important;
+
+			&:lang(en) {
+				text-align: left;
+			}
+		}
+		button {
+			order: 2;
 		}
 	}
 }
@@ -162,6 +219,11 @@
 					background-color: $fwg-green;
 					height: 400px;
 					width: 250px;
+					h1 {
+						&:lang(en) {
+							font-size: 5rem;
+						}
+					}
 				}
 				&_hollow {
 					height: 400px;
@@ -179,6 +241,7 @@
 			justify-content: center;
 			margin: 8rem 0;
 			align-items: center;
+			order: 1;
 			.cover {
 				position: relative;
 				display: flex;
@@ -205,6 +268,7 @@
 				text-align: right;
 				padding: 0 2rem;
 				width: 100%;
+				order: 2;
 			}
 		}
 		.activities {
@@ -281,7 +345,6 @@
 				margin-top: 3rem;
 			}
 		}
-		
 
 		.activities {
 			display: flex;
@@ -296,7 +359,6 @@
 				width: 100%;
 				font-size: 2rem;
 				text-align: center;
-
 			}
 		}
 		.role {

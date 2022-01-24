@@ -1,5 +1,11 @@
 @import "./variables.scss";
 .main {
+	&:lang(ar) {
+		direction: rtl;
+	}
+	&:lang(en) {
+		direction: ltr;
+	}
 	.hero {
 		background-color: $fwg-green;
 		height: calc(100vh - 90px);
@@ -21,6 +27,12 @@
 			border-radius: 5px;
 			text-align: center;
 			overflow: scroll;
+			&:lang(ar) {
+				order: 2;
+			}
+			&:lang(en) {
+				order: 2;
+			}
 			/* width */
 			&::-webkit-scrollbar {
 				width: 10px;
@@ -35,7 +47,6 @@
 			&::-webkit-scrollbar-thumb {
 				background: $fwg-yellow;
 			}
-
 
 			p {
 				color: $fwg-green;
@@ -52,6 +63,14 @@
 			justify-content: center;
 			align-items: flex-end;
 			width: 50%;
+			&:lang(ar) {
+				order: 1;
+				align-items: flex-start;
+			}
+			&:lang(en) {
+				order: 1;
+				align-items: flex-start;
+			}
 			.title {
 				margin: 2rem 0;
 				display: flex;
@@ -66,6 +85,12 @@
 					&::selection {
 						background-color: #fff;
 					}
+					&:lang(ar) {
+						order: 1;
+					}
+					&:lang(en) {
+						order: 2;
+					}
 				}
 				.arrow {
 					background-color: $fwg-yellow;
@@ -79,6 +104,10 @@
 						transition: all 0.5s;
 						margin-right: -50px;
 						visibility: hidden;
+					}
+					&:lang(en) {
+						transform: rotate(180deg);
+						margin-right: 2rem;
 					}
 				}
 				&:hover {
@@ -123,6 +152,9 @@
 			justify-items: center;
 			gap: 3rem;
 			transition: all 0.3s;
+			&:lang(en) {
+				direction: ltr;
+			}
 			// align-items: center;
 			.btn {
 				border: 1px solid #cecdcc;
@@ -139,6 +171,12 @@
 				font-weight: 700;
 				color: $fwg-green;
 				transition: all 0.1s;
+
+				&:lang(en) {
+					img {
+						margin-right: 0;
+					}
+				}
 			}
 			.btnAll {
 				background-color: $fwg-yellow;
@@ -155,14 +193,17 @@
 
 		&_content {
 			display: grid;
-			margin: 20rem 0;
+			margin: 10rem 0;
 			grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
 			justify-content: center;
 			align-items: center;
 			justify-items: center;
 			align-content: center;
-			gap: 3rem;
+			gap: 7rem 3rem;
 			direction: rtl;
+			&:lang(en) {
+				direction: ltr;
+			}
 		}
 	}
 }

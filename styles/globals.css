@@ -8,6 +8,7 @@
 html {
 	font-size: 10px;
 }
+
 html,
 body {
 	padding: 0;
@@ -28,6 +29,12 @@ button {
 
 p {
 	color: #232528;
+}
+p:lang(ar) {
+	direction: rtl;
+}
+p:lang(en) {
+	direction: ltr;
 }
 
 @media screen and (max-width: 1000px) {

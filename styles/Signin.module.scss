@@ -57,6 +57,9 @@
           border-radius: 5px;
           border: 1px solid #DCE2E4;
           transition: all 0.2s;
+					&:lang(en) {
+						text-align: left;
+					}
           &:focus {
             outline: none;
             border: 1px solid #aeb3b4;

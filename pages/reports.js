@@ -10,7 +10,8 @@ import {
 	hero_info,
 	locations,
 	months,
-	types,
+	ar_types,
+	en_types,
 	years,
 } from "../api/content";
 import Filter from "../components/Filter";
@@ -19,27 +20,13 @@ import { ar } from "../locales/ar";
 import { en } from "../locales/en";
 import filterStyles from "../styles/Filter.module.scss";
 import styles from "../styles/Reports.module.scss";
-const Reports = ({ serverData }) => {
+import documentIcon from "../public/icons/documentIcon.svg";
+const Reports = ({ jwt, serverContent }) => {
 	const router = useRouter();
 	const t = router.locale === "en" ? en : ar;
+	const types = router.locale === "en" ? en_types : ar_types;
 	const [selectedTitle, setSelectedTitle] = useState(null);
-	const [content, setContent] = useState(documents);
-	console.log(serverData);
-	// const jwtt = parseCookies().jwt
-	/* 	useEffect(() => {
-		axios
-			.get(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
-				headers: {
-					Authorization: `Bearer ${jwtt}`,
-				},
-			})
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}, []); */
+	const [content, setContent] = useState(serverContent);
 	const selectTitle = (e) => {
 		const title = e.target;
 		if (title.tagName == "H1") {
@@ -56,43 +43,31 @@ const Reports = ({ serverData }) => {
 	const filterContent = (e) => {
 		const filter = e.target.value;
 		if (filter === "all") {
-			setContent(documents);
+			setContent(serverContent);
 		} else {
 			setContent(documents);
 			if (types.indexOf(filter) !== -1) {
-				setContent(documents.filter((doc) => doc.type === filter));
+				setContent(serverContent.filter((doc) => doc.type.Type === filter));
 			}
 			if (locations.indexOf(filter) !== -1) {
-				setContent(documents.filter((doc) => doc.subtype === filter));
+				setContent(serverContent.filter((doc) => doc.subtype.Type === filter));
 			}
 			if (years.indexOf(Number(filter)) !== -1) {
-				setContent(documents.filter((doc) => doc.year === Number(filter)));
+				setContent(serverContent.filter((doc) => doc.year === Number(filter)));
 			}
 			if (months.indexOf(filter) !== -1) {
-				setContent(documents.filter((doc) => doc.month === filter));
+				setContent(serverContent.filter((doc) => doc.month === filter));
 			}
 		}
 	};
 	const toggleFilter = (e) => {
 		e.target.parentNode.parentNode.classList.toggle(filterStyles.shown);
 	};
-/* 	useEffect(() => {
-		axios
-			.get(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
-				headers: { Authorization: `Bearer ${jwt}` },
-			})
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	}, []); */
-	console.log(t.reports.advocacyDescription);
+
 	return (
 		<>
 			<Head>
-				<title>تقارير المنتدى</title>
+				<title>{t.reports.pageTitle}</title>
 			</Head>
 			<main className={styles.main}>
 				<section className={styles.hero}>
@@ -163,7 +138,7 @@ const Reports = ({ serverData }) => {
 					</div>
 				</section>
 				<p className={styles.description}>{t.reports.libraryDescription}</p>
-				{true ? (
+				{jwt ? (
 					<section className={styles.documents}>
 						<div className={styles.documents_filters}>
 							<button
@@ -200,13 +175,14 @@ const Reports = ({ serverData }) => {
 						<div className={styles.documents_content}>
 							{content.map((doc, i) => (
 								<ReportDocument
-									title={doc.title}
-									key={`${doc.title}-${i}`}
-									img={doc.img}
-									type={doc.type}
-									subtype={doc.subtype}
+									title={doc.Title}
+									key={`${doc.Title}-${i}`}
+									img={documentIcon}
+									type={doc.type.Type}
+									subtype={doc.subtype.Type}
 									month={doc.month}
 									year={doc.year}
+									link={doc.Pdf.url}
 								/>
 							))}
 						</div>
@@ -237,7 +213,7 @@ const Reports = ({ serverData }) => {
 								fontWeight: "700",
 								cursor: "pointer",
 							}}>
-							<Link href="/login">تسجيل الدخول</Link>
+							<Link href="/signin">تسجيل الدخول</Link>
 						</button>
 					</div>
 				)}
@@ -247,27 +223,32 @@ const Reports = ({ serverData }) => {
 };
 // const {publicRuntimeConfig} = getConfig();
 // console.log(publicRuntimeConfig);
-export async function getStaticProps() {
-	const jwt = parseCookies().jwt
-	await axios
-		.get("https://admin.almanassah-sd.org/reports", {
+export async function getServerSideProps(ctx) {
+	const { req, res } = ctx;
+	const { cookies } = req;
+	const jwt = cookies.jwt || null;
+	const locale = ctx.locale === "ar" ? "ar-SD" : "en";
+	const content = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}/reports?_locale=${locale}`,
+		{
+			method: "GET",
 			headers: {
-				Authorization: `Bearer ${jwt}`,
+				Authorization: "Bearer " + jwt,
 			},
-		})
-		.then((resp) => {
-			console.log(resp);
-			return resp;
-		})
+		}
+	)
+		.then((resp) => resp.json())
+		.then((data) => data)
 		.catch((error) => {
 			console.error(`Error from server is: ${error}`);
 		});
+	const data = await content;
 	return {
 		props: {
-			serverData: 'hello',
+			jwt: jwt,
+			serverContent: jwt ? data : null,
 		},
 	};
 }
-
 
 export default Reports;

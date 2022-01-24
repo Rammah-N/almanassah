@@ -2,29 +2,36 @@ import styles from "../styles/Contact.module.scss";
 import { useRouter } from "next/dist/client/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
+import Head from 'next/head'
 const Contact = () => {
 	const router = useRouter();
 	const t = router.locale === "ar" ? ar : en;
 	return (
-		<main className={styles.main}>
-			<h1>{t.common.contactUs}</h1>
-			<p>{t.contact.description}</p>
-			<form>
-				<label htmlFor="name">{t.contact.name}</label>
-				<input type="text" name="name" required />
+		<>
+			<Head>
+				<title>{t.contact.pageTitle}</title>
+			</Head>
 
-				<label htmlFor="email">{t.common.email}</label>
-				<input type="email" name="email" required />
+			<main className={styles.main}>
+				<h1>{t.common.contactUs}</h1>
+				<p>{t.contact.description}</p>
+				<form>
+					<label htmlFor="name">{t.contact.name}</label>
+					<input type="text" name="name" required />
 
-				<label htmlFor="phone">{t.common.phone}</label>
-				<input type="tel" name="phone" required />
+					<label htmlFor="email">{t.common.email}</label>
+					<input type="email" name="email" required />
 
-				<label htmlFor="message">{t.contact.message}</label>
-				<textarea name="message" cols="30" rows="10" required></textarea>
+					<label htmlFor="phone">{t.common.phone}</label>
+					<input type="tel" name="phone" required />
 
-				<button type="submit">{t.common.submit}</button>
-			</form>
-		</main>
+					<label htmlFor="message">{t.contact.message}</label>
+					<textarea name="message" cols="30" rows="10" required></textarea>
+
+					<button type="submit">{t.common.submit}</button>
+				</form>
+			</main>
+		</>
 	);
 };
 

@@ -19,37 +19,32 @@ export default function Home({ serverContent }) {
 		Updates: updates,
 		about,
 	} = serverContent;
-	console.log(serverContent);
-	console.log(goals);
-	console.log(header);
-	const data = [
-		{
-			title: "المناصرة, ما هي وما أهدافها",
-			tags: ["المنتدى التفاكري للسلام", "تحديث", "أخبار شهرية"],
-			img: "/images/img1.png",
-			link: "/about",
-		},
-		{
-			title: "تقارير الإجتماعات نصف الشهرية للمنتدى التفاكري للسلام",
-			tags: ["المنتدى التفاكري للسلام", "تحديث", "أخبار شهرية"],
-			img: "/images/img2.png",
-			link: "/about",
-		},
-		{
-			title: "تعرف على المساحات المفتوحه الخاصة بالمنصة",
-			tags: ["المنتدى التفاكري للسلام", "المساحات", "تسجيل"],
-			img: "/images/img3.png",
-			link: "/about",
-		},
-	];
 	return (
 		<>
 			<Head>
-				<title>المنصة</title>
+				<title>{t.home.pageTitle}</title>
 			</Head>
 			<main className={styles.home}>
 				Hero Section
 				<section className={styles.home_hero}>
+					<div
+						style={{
+							width: "50%",
+							height: "200px",
+							backgroundColor: "#10324F",
+							position: "absolute",
+							top: "0",
+							left: "0",
+						}}></div>
+					<div
+						style={{
+							width: "50%",
+							height: "200px",
+							backgroundColor: "#fff",
+							position: "absolute",
+							top: "0",
+							right: "0",
+						}}></div>
 					<h1>
 						<span>{t.home.heroTitle[0]}</span>
 						<span>{t.home.heroTitle[1]} </span>
@@ -65,18 +60,18 @@ export default function Home({ serverContent }) {
 				{/* Goals Section */}
 				<section className={styles.home_goals}>
 					<p className={styles.subtitle}>{t.home.descriptionSubtitle}</p>
-					<p className={styles.description}>{goals.goals[0].main}</p>
+					<p className={styles.description}>{t.home.description}</p>
 					<div className={styles.goals_container}>
 						<div className={styles.home_goals_goal}>
-							<p>{goals.goals[0].goal1}</p>
+							<p>{t.home.goals[0]}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 						<div className={styles.home_goals_goal}>
-							<p>{goals.goals[0].goal2}</p>
+							<p>{t.home.goals[1]}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 						<div className={styles.home_goals_goal}>
-							<p>{goals.goals[0].goal3}</p>
+							<p>{t.home.goals[2]}</p>
 							<img src="/icons/goal-1.svg" alt="" />
 						</div>
 					</div>
@@ -94,7 +89,7 @@ export default function Home({ serverContent }) {
 				{/* CTA Section */}
 				<section className={styles.home_cta}>
 					<p>{t.home.registerDescription}</p>
-					<Link href="/register" passHref>
+					<Link href="/register">
 						<Button color="#10324F">{t.common.registerNow}</Button>
 					</Link>
 				</section>
@@ -107,7 +102,7 @@ export async function getServerSideProps(ctx) {
 		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
 	const locale = ctx.locale === "ar" ? "ar-SD" : "en";
 	const content = await axios(
-		`https://admin.almanassah-sd.org/home?_locale=${locale}`
+		`${process.env.NEXT_PUBLIC_API_URL}/home?_locale=${locale}`
 	)
 		.then((res) => res.data)
 		.catch((error) => {

@@ -10,10 +10,19 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			&:lang(en) {
+				order: 2;
+				@media screen and (max-width: 500px) {
+					margin-top: 4rem;
+				}
+			}
 			.chart {
 				background-color: rgba(255, 255, 255, 0.2);
 				border-radius: 5px;
 				text-align: right;
+				&:lang(en) {
+					text-align: left;
+				}
 				padding: 3rem;
 				width: 70%;
 				color: #fff;
@@ -69,6 +78,10 @@
 
 		&_info {
 			text-align: right;
+			&:lang(en) {
+				text-align: left;
+				padding-left: 5rem;
+			}
 			width: 50%;
 			display: flex;
 			flex-direction: column;
@@ -83,6 +96,9 @@
 			p {
 				font-size: 2rem;
 				padding-left: 5rem;
+				&:lang(en) {
+					padding-left: 0;
+				}
 			}
 			button {
 				border: none;
@@ -94,6 +110,9 @@
 				border-radius: 5px;
 				margin-top: 3rem;
 				align-self: flex-end;
+				&:lang(en) {
+					align-self: flex-start;
+				}
 				cursor: pointer;
 				transition: transform 0.2s;
 				&:hover {
@@ -155,12 +174,18 @@
 		height: 300px;
 		margin: 15rem 0 8rem 0;
 		text-align: right;
+		&:lang(en) {
+			text-align: left;
+		}
 		.stat {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			width: calc(100% / 3);
 			direction: rtl;
+			&:lang(en) {
+				direction: ltr;
+			}
 			&_info {
 				h2 {
 					font-size: 2rem;
@@ -205,6 +230,15 @@
 			font-weight: 700;
 			text-align: right;
 			width: 50%;
+			&:lang(en) {
+				text-align: left;
+				order: 1;
+			}
+		}
+		button {
+			&:lang(en) {
+				order: 2;
+			}
 		}
 	}
 }
@@ -218,6 +252,9 @@
 			&_chart {
 				width: 100%;
 				padding: 2rem 0;
+				&:lang(en) {
+					order: 1;
+				}
 				.chart {
 					padding: 2rem;
 					width: 80%;
@@ -246,19 +283,31 @@
 				align-items: center;
 				padding: 0 2rem;
 				margin-top: 4rem;
+				&:lang(en) {
+					order: 2;
+				}
 				h1 {
 					font-size: 2.8rem;
 					color: $fwg-green;
 					margin-bottom: 1rem;
+					&:lang(en) {
+						text-align: center;
+					}
 				}
 				p {
 					font-size: 2.2rem;
 					padding-left: 0;
+					&:lang(en) {
+						text-align: center;
+					}
 				}
 				button {
 					align-self: center;
 					cursor: pointer;
 					transition: transform 0.2s;
+					&:lang(en) {
+						align-self: center;
+					}
 					&:hover {
 						transform: scale(1.05);
 					}
@@ -270,6 +319,9 @@
 			padding: 3rem 1rem;
 			height: auto;
 			flex-direction: column;
+			&:lang(en) {
+				text-align: center;
+			}
 			.stat {
 				width: 100%;
 				margin-top: 2rem;

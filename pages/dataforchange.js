@@ -5,26 +5,29 @@ import { parseCookies } from "nookies";
 import { useEffect } from "react";
 import Button from "../components/Button";
 import Head from "next/head";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
+import { en } from "../locales/en";
+import { ar } from "../locales/ar";
+import axios from "axios";
 const DataForChange = ({ jwt }) => {
 	const router = useRouter();
-	useEffect(() => {
-		if (!jwt) {
-			router.push("/");
-		}
-	}, []);
+	const locale = router.locale;
+	const t = locale === "ar" ? ar : en;
+	axios.get("https://admin.almanassah-sd.org/dfc").then((res) => {
+		console.log(res);
+	});
 	return (
 		<>
 			<Head>
-				<title>بيانات للتغيير</title>
+				<title>{t.dfc.pageTitle}</title>
 			</Head>
 			<main className={styles.main}>
 				<section className={styles.hero}>
 					<div className={styles.hero_chart}>
 						<div className={styles.chart}>
-							<span>نبذة عن المشروع</span>
-							<h1>:عدد الإستبيانات</h1>
-							<p>150 إستبيان على مر 7 شهور في 11 ولاية</p>
+							<span>{t.dfc.hero.chartSub}</span>
+							<h1>{t.dfc.hero.chartStatTitle}</h1>
+							<p>{t.dfc.hero.chartStat}</p>
 							<div className={styles.chart_figure}>
 								<div></div>
 								<div></div>
@@ -35,25 +38,19 @@ const DataForChange = ({ jwt }) => {
 						</div>
 					</div>
 					<div className={styles.hero_info}>
-						<h1>بيانات للتغيير هو أول مشروع لجمع البيانات في السودان</h1>
-						<p>
-							الهدف من خلقنا لمشروع بيانات للتغيير هو لدعم البحوث ولدعم التغيير
-							في السودان عن طريق توفير البيانات الكافية لتحقيق هذه الأهداف
-						</p>
+						<h1>{t.dfc.hero.main}</h1>
+						<p>{t.dfc.hero.mainSub}</p>
 						<Link href="/" passHref>
-							<button>التسجيل للبرنامج</button>
+							<button>{t.common.registerNow}</button>
 						</Link>
 					</div>
 				</section>
 				<section className={styles.features}>
-					<h1>مميزات البرنامج</h1>
+					<h1>{t.dfc.features.title}</h1>
 					<div className={styles.container}>
 						<div className={styles.feature}>
-							<h2>بيانات دقيقة</h2>
-							<p>
-								كل المعلومات التي تم جمعها في هذا المشروع دقيقة وتم التحقق منها
-								من خبراء مختصين في جمع البيانات
-							</p>
+							<h2>{t.dfc.features.list[0].title}</h2>
+							<p>{t.dfc.features.list[0].description}</p>
 							<Image
 								width="90"
 								height="90"
@@ -62,11 +59,8 @@ const DataForChange = ({ jwt }) => {
 							/>
 						</div>
 						<div className={styles.feature}>
-							<h2>مواضيع متنوعة</h2>
-							<p>
-								هذا المشروع يتضمن بيانات في عدة مجالات وبتفاصيل كئيرة عن كل مجال
-								تتيح للمستخدم البحث في عدة مجالات
-							</p>
+							<h2>{t.dfc.features.list[1].title}</h2>
+							<p>{t.dfc.features.list[1].description}</p>
 							<Image
 								width="90"
 								height="90"
@@ -75,11 +69,8 @@ const DataForChange = ({ jwt }) => {
 							/>
 						</div>
 						<div className={styles.feature}>
-							<h2>تحديثات دورية</h2>
-							<p>
-								مشروع بيانات للتغيير مشروع مستمر وقائم عليه فريق عمل كبير جدا,
-								ويتم تحديث البيانات دوريا لتزويد المستخدم بأكبر قدر من المعلومات
-							</p>
+							<h2>{t.dfc.features.list[2].title}</h2>
+							<p>{t.dfc.features.list[2].description}</p>
 							<Image
 								width="90"
 								height="90"
@@ -92,40 +83,36 @@ const DataForChange = ({ jwt }) => {
 				<section className={styles.stats}>
 					<div className={styles.stat}>
 						<div className={styles.stat_info}>
-							<h2>بداية تسجيل البيانات</h2>
-							<h1>منذ عام 2017</h1>
+							<h2>{t.dfc.stats[0].title}</h2>
+							<h1>{t.dfc.stats[0].description}</h1>
 						</div>
 					</div>
 					<i></i>
 					<div className={styles.stat}>
 						<div className={styles.stat_info}>
-							<h2>عدد المواضيع</h2>
-							<h1>15 موضوع مختلف</h1>
+							<h2>{t.dfc.stats[1].title}</h2>
+							<h1>{t.dfc.stats[1].description}</h1>
 						</div>
 					</div>
 					<i></i>
 					<div className={styles.stat}>
 						<div className={styles.stat_info}>
-							<h2>عدد الإستبيانات</h2>
-							<h1>1500 إستبيان</h1>
+							<h2>{t.dfc.stats[2].title}</h2>
+							<h1>{t.dfc.stats[2].description}</h1>
 						</div>
 					</div>
 				</section>
 				<section className={styles.about}>
-					<h1>ليه عملنا مشروع بيانات للتغيير؟</h1>
+					<h1>{t.dfc.reason.title}</h1>
 					<p>
-						عملنا مشروع “بيانات للتغيير” عشان دايرين نصلح البلد ونمشي لي قدام,
-						ونساعد في تطوير المشاريع عن طريق توفير أكبر كم من البيانات لتحفيز
-						العمل ولدعم البرامج المتعلقة بهذه البرامج بصورة مباشرة أو غير مباشرة
+					{t.dfc.reason.description}
 					</p>
 				</section>
 				<section className={styles.cta}>
-					<Button text="إقرأ المزيد" color="#FCB03F" bgc="#10324F">
-						<Link href="/reports">إقرأ المزيد</Link>
+					<Button text={t.common.registerNow} color="#FCB03F" bgc="#10324F">
+						<Link href="/reports">{t.dfc.contact.button}</Link>
 					</Button>
-					<p>
-						لو داير تصل للبيانات المهمة المتعلقة المتعلقة بي مشروع بيانات
-						للتغيير ؟ ممكن عن طريق الموقع الرئيسي للمشروع
+					<p>{t.dfc.contact.title}
 					</p>
 				</section>
 			</main>

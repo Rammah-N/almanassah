@@ -1,6 +1,7 @@
 export const en = {
 	// Homepage Translations
 	home: {
+		pageTitle: 'The Platform',
 		heroTitle: [
 			"The Platform is ",
 			"Your Gateway to",
@@ -9,11 +10,11 @@ export const en = {
 		],
 		descriptionSubtitle: "Your gateway to the civil societies",
 		description:
-			"The platform is your destination for all data related to the analysis and interventions of some civil society actors and grassroots groups, and those related to international organizations, in a number of government-controlled and armed movements-controlled areas.",
+			"The platform is an expansive space that reviews the work, activities, activities and projects of organizations, actors, civil society and accountability at the national and local levels.",
 		goals: [
-			"Promoting coordination efforts, networking, exchanging experience ",
-			"Sharing Data and information related to the context alongside analysis and interventions",
-			"Creating a mechanism that involves all the actors of the civil society ",
+			"Contribute to the consolidation of peace",
+			"Connecting all components of civil society in Sudan",
+			"Facilitate networking and coordination",
 		],
 		handshakeGoal:
 			"Our goal is to create a united and coordinated front among all components and levels of civil society to support the issues of transition in Sudan",
@@ -22,6 +23,7 @@ export const en = {
 	},
 	// Framework Group Page Translations
 	fwm: {
+		pageTitle: 'The Framework Group',
 		heroTitle: ["The", "Framework", "Group"],
 		heroDescription:
 			"The Forum is an unofficial body for cooperation between representatives of Sudanese and international civil society and organizations, our goal is a peaceful transition and a democratic transition, nonviolent, comprehensive and integrated with Sudanese leadership",
@@ -34,11 +36,9 @@ export const en = {
 		activities: [
 			"Regional Meetings",
 			"Semi-annual meetings",
-			"Periodicals",
 			"Thematic meetings",
-			"Translation and distribution of important documents",
-			"Round table discussions",
 			"Advocacy campaigns",
+			"Periodicals",
 		],
 		role: "Framework Role",
 		roleDescription:
@@ -47,11 +47,12 @@ export const en = {
 			"You can access the content, reports, and documents related to The Framework Group from here",
 	},
 	reports: {
+		pageTitle: 'Framework reports',
 		heroStockDescription: "Please select one of the titles to find out more",
 		monthly: "Monthly Newsletters",
 		monthlyDescription:
 			"Through this bulletin, the FWM coordination team reviews the most important and urgent issues and developments related to the situation in the government controlled areas and the areas under the armed movements control. These bulletins contain the most important analysis related to the political, economic and security situation and urgent issues from the contributors and civil society actors’ point of view.",
-			advocacy: "Advocacy",
+		advocacy: "Advocacy",
 		advocacyDescription:
 			"This bulletin, which is issued every two months by the coordination team of the Forum, reviews the most important issues that require urgent interventions and advocated by civil society at the national or regional level, or relevant international organizations, which are reached by analyzing the results of the recommendations of the regional and state meetings and activities that It is implemented by the coordination team in its work areas, also through interviews and consultative sessions with the forum's contributors and civil society actors/s.",
 		special: "Specialized Bulletins",
@@ -86,7 +87,63 @@ export const en = {
 			"December",
 		],
 	},
+	dfc: {
+		pageTitle: 'Data For Change',
+		hero: {
+			main: "Data for Change is the first data collection project in Sudan",
+			mainSub:
+				"The goal of our creation of the Data for Change project is to support research and support change in Sudan by providing sufficient data to achieve these goals",
+			chartSub: "Brief about the project",
+			chartStatTitle: "Number of surveys",
+			chartStat: "150 surveys over 7 months in 11 states",
+		},
+		features: {
+			title: "Program Features",
+			list: [
+				{
+					title: "Regular updates",
+					description:
+						"Data For Change is an ongoing project based on a very large team, and the data is updated periodically to provide the user with as much information as possible",
+				},
+				{
+					title: "Diverse Topics",
+					description:
+						"This project includes data in several fields. Many details about each field allow the user to search in several fields",
+				},
+				{
+					title: "Accurate Data",
+					description:
+						"All information collected in this project is accurate and verified by experts in data collection",
+				},
+			],
+		},
+		stats: [
+			{
+				title: "Surveys",
+				description: "1500 Survey",
+			},
+			{
+				title: "Topics",
+				description: "15 Different topics",
+			},
+			{
+				title: "Date of collection",
+				description: "Since 2017",
+			},
+		],
+		reason: {
+			title: "Why did we create Data for Change?",
+			description:
+				"We set up a “Data for Change” project so that we can fix the country and move it forward, and help develop projects by providing the largest amount of data to stimulate work and support programs related to these programs directly or indirectly",
+		},
+		contact: {
+			title:
+				"If you want to access the content related to Data for change you can register through here",
+			button: "Register Now",
+		},
+	},
 	spaces: {
+		pageTitle: 'Open Spaces',
 		title: "The Framework Group open spaces",
 		description:
 			"FWM’s Coordination Team is working to create an open workspace for civil society, grassroots groups and contributors to facilitate the implementation of any activities, meetings and capacity-raising programs that work to support and enhance the democratization and transition in Sudan through civil society. These spaces have been prepared and equipped with all logistics measures (High quality internet access, continuous electricity supply via solar energy and video conferencing equipment).",
@@ -96,6 +153,19 @@ export const en = {
 			"Central Darfur - Zalingei",
 			"South Kordofan - Kauda (SPLM/N-controlled areas)",
 		],
+		form: {
+			reason: 'Reason for reservation',
+			choose: 'Choose the space',
+			options: [
+				'Khartoum',
+				'Portsudan',
+				'South Kordufan - Ad Dalanj',
+				'Central Darfur - Zalingei',
+				'South Kordufan - Kauda'
+			],
+			date: 'Reservation date',
+			reserve: 'Reserve Now'
+		},
 		reserve: "Reserve a space",
 		reserveNow: "Book Now",
 		reserveDescription:
@@ -131,5 +201,14 @@ export const en = {
 		phone: "Phone Number",
 		submit: "Submit",
 		copyrights: "Copyrights © 2022 The Framework Group. All rights reserved.",
+		password: "Password",
+		loginSuccess: "Login Successful!",
+		logo: "Platform",
+		loginDescription: "You can use your E-Mail address to login",
+		username: "Username",
+		affinity: "Affinity",
+		registerTextArea: "What will you use our documents for?",
+		chooseSpace: 'Choose space',
+		name: 'Name'
 	},
 };

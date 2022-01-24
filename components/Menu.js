@@ -14,10 +14,14 @@ const Menu = ({ toggled, toggleMenu, jwt }) => {
 	const authStore = useAuth();
 	const cookies = parseCookies();
 	const handleLogout = () => {
-		console.log("logged out");
 		authStore.logout();
 		authStore.setJWT(null);
 		destroyCookie(null, "jwt", { path: "/" });
+		if (router.locale === "en") {
+			router.push("/en");
+		} else {
+			router.push("/");
+		}
 	};
 	return (
 		<div className={`${styles.menu} ${toggled ? styles.toggled : ""}`}>
@@ -28,19 +32,15 @@ const Menu = ({ toggled, toggleMenu, jwt }) => {
 				<li onClick={toggleMenu}>
 					<Link href="/forum">{t.common.menu[1]}</Link>
 				</li>
-				{cookies.jwt ? (
-					<>
-						<li onClick={toggleMenu}>
-							<Link href="/reports">{t.common.menu[2]}</Link>
-						</li>
-						<li onClick={toggleMenu}>
-							<Link href="/dataforchange">{t.common.menu[3]}</Link>
-						</li>
-						<li onClick={toggleMenu}>
-							<Link href="/spaces">{t.common.menu[4]}</Link>
-						</li>
-					</>
-				) : null}
+				<li onClick={toggleMenu}>
+					<Link href="/reports">{t.common.menu[2]}</Link>
+				</li>
+				<li onClick={toggleMenu}>
+					<Link href="/dataforchange">{t.common.menu[3]}</Link>
+				</li>
+				<li onClick={toggleMenu}>
+					<Link href="/spaces">{t.common.menu[4]}</Link>
+				</li>
 			</ul>
 			<div className={`${styles.socials} ${toggled ? styles.fadeIn : ""}`}>
 				<div className={styles.users}>
@@ -64,12 +64,12 @@ const Menu = ({ toggled, toggleMenu, jwt }) => {
 				</div>
 				<div className={styles.translation}>
 					<li onClick={toggleMenu}>
-						<Link href="/en" locale="en">
+						<Link href={`/en${router.pathname}`} locale="en">
 							English
 						</Link>
 					</li>
 					<li onClick={toggleMenu}>
-						<Link href="/" locale="ar">
+						<Link href={`/${router.pathname}`} locale="ar">
 							العربية
 						</Link>
 					</li>
