@@ -8,6 +8,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { en } from "../locales/en";
 import { ar } from "../locales/ar";
+import riots_en from "../public/images/riots-en.png";
+import riots_ar from "../public/images/riots-ar.png";
+import poli_en from '../public/images/poli-rep-en.png';
+import poli_ar from '../public/images/poli-ar.png';
 import axios from "axios";
 const DataForChange = ({ jwt }) => {
 	const router = useRouter();
@@ -40,7 +44,7 @@ const DataForChange = ({ jwt }) => {
 					<div className={styles.hero_info}>
 						<h1>{t.dfc.hero.main}</h1>
 						<p>{t.dfc.hero.mainSub}</p>
-						<Link href="/" passHref>
+						<Link href="https://almanassa.exploredata.site/" passHref>
 							<button>{t.common.registerNow}</button>
 						</Link>
 					</div>
@@ -104,15 +108,35 @@ const DataForChange = ({ jwt }) => {
 				</section>
 				<section className={styles.about}>
 					<h1>{t.dfc.reason.title}</h1>
-					<p>
-					{t.dfc.reason.description}
-					</p>
+					<p>{t.dfc.reason.description}</p>
+				</section>
+				<section className={styles.figures}>
+					<figure >
+						<Image
+							src={locale === "ar" ? riots_ar : riots_en}
+							alt="Trulli"
+							
+						/>
+						<figcaption >{t.dfc.figures.riots}</figcaption>
+					</figure>
+					<figure>
+						<Image
+							src={locale === "ar" ? poli_ar : poli_en}
+							alt="Trulli"
+						/>
+						<figcaption >{t.dfc.figures.repression}</figcaption>
+					</figure>
 				</section>
 				<section className={styles.cta}>
 					<Button text={t.common.registerNow} color="#FCB03F" bgc="#10324F">
-						<Link href="/reports">{t.dfc.contact.button}</Link>
+						<Link href="https://almanassa.exploredata.site/">
+							{t.dfc.contact.button}
+						</Link>
 					</Button>
-					<p>{t.dfc.contact.title}
+					<p>
+						{t.dfc.contact.title}
+						<br />
+						<span>{t.dfc.contact.info}</span>
 					</p>
 				</section>
 			</main>

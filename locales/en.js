@@ -1,7 +1,7 @@
 export const en = {
 	// Homepage Translations
 	home: {
-		pageTitle: 'The Platform',
+		pageTitle: "The Platform",
 		heroTitle: [
 			"The Platform is ",
 			"Your Gateway to",
@@ -23,7 +23,7 @@ export const en = {
 	},
 	// Framework Group Page Translations
 	fwm: {
-		pageTitle: 'The Framework Group',
+		pageTitle: "The Framework Group",
 		heroTitle: ["The", "Framework", "Group"],
 		heroDescription:
 			"The Forum is an unofficial body for cooperation between representatives of Sudanese and international civil society and organizations, our goal is a peaceful transition and a democratic transition, nonviolent, comprehensive and integrated with Sudanese leadership",
@@ -47,7 +47,7 @@ export const en = {
 			"You can access the content, reports, and documents related to The Framework Group from here",
 	},
 	reports: {
-		pageTitle: 'Framework reports',
+		pageTitle: "Framework reports",
 		heroStockDescription: "Please select one of the titles to find out more",
 		monthly: "Monthly Newsletters",
 		monthlyDescription:
@@ -88,11 +88,11 @@ export const en = {
 		],
 	},
 	dfc: {
-		pageTitle: 'Data For Change',
+		pageTitle: "Data For Change",
 		hero: {
-			main: "Data for Change is the first data collection project in Sudan",
+			main: "Data for Change is a tool for mapping political developments and civil conflicts in Sudan.",
 			mainSub:
-				"The goal of our creation of the Data for Change project is to support research and support change in Sudan by providing sufficient data to achieve these goals",
+				"DfC aims to serve as a joint information platform for civil society actors to help in integrating efforts, identifying issues that need advocacy, decision-making and research. ",
 			chartSub: "Brief about the project",
 			chartStatTitle: "Number of surveys",
 			chartStat: "150 surveys over 7 months in 11 states",
@@ -120,7 +120,7 @@ export const en = {
 		stats: [
 			{
 				title: "Surveys",
-				description: "1500 Survey",
+				description: "150 Survey",
 			},
 			{
 				title: "Topics",
@@ -136,14 +136,19 @@ export const en = {
 			description:
 				"We set up a “Data for Change” project so that we can fix the country and move it forward, and help develop projects by providing the largest amount of data to stimulate work and support programs related to these programs directly or indirectly",
 		},
+		figures: {
+			riots: "Location and frequency of protests from October to December 2021",
+			repression: "Political repression in the second half of 2021",
+		},
 		contact: {
 			title:
 				"If you want to access the content related to Data for change you can register through here",
 			button: "Register Now",
+			info: "You can get the username to login to our portal by contacting us: dfc.team.fwg@gmail.com",
 		},
 	},
 	spaces: {
-		pageTitle: 'Open Spaces',
+		pageTitle: "Open Spaces",
 		title: "The Framework Group open spaces",
 		description:
 			"FWM’s Coordination Team is working to create an open workspace for civil society, grassroots groups and contributors to facilitate the implementation of any activities, meetings and capacity-raising programs that work to support and enhance the democratization and transition in Sudan through civil society. These spaces have been prepared and equipped with all logistics measures (High quality internet access, continuous electricity supply via solar energy and video conferencing equipment).",
@@ -154,17 +159,17 @@ export const en = {
 			"South Kordofan - Kauda (SPLM/N-controlled areas)",
 		],
 		form: {
-			reason: 'Reason for reservation',
-			choose: 'Choose the space',
+			reason: "Reason for reservation",
+			choose: "Choose the space",
 			options: [
-				'Khartoum',
-				'Portsudan',
-				'South Kordufan - Ad Dalanj',
-				'Central Darfur - Zalingei',
-				'South Kordufan - Kauda'
+				"Khartoum",
+				"Portsudan",
+				"South Kordufan - Ad Dalanj",
+				"Central Darfur - Zalingei",
+				"South Kordufan - Kauda",
 			],
-			date: 'Reservation date',
-			reserve: 'Reserve Now'
+			date: "Reservation date",
+			reserve: "Reserve Now",
 		},
 		reserve: "Reserve a space",
 		reserveNow: "Book Now",
@@ -208,7 +213,7 @@ export const en = {
 		username: "Username",
 		affinity: "Affinity",
 		registerTextArea: "What will you use our documents for?",
-		chooseSpace: 'Choose space',
-		name: 'Name'
+		chooseSpace: "Choose space",
+		name: "Name",
 	},
 };
