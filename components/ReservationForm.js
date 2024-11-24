@@ -1,4 +1,4 @@
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import styles from "../styles/Reservation.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";

@@ -10,7 +10,7 @@ const UpdatesCard = ({ title, tags, img, refs, link }) => {
 					<span key={tag}>{tag}</span>
 				))}
 			</div> */}
-			<Link href={link} passHref>
+			<Link href={link} >
 				<h2 style={{marginTop: '15px'}}>{title}</h2>
 			</Link>
 		</div>

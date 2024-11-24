@@ -7,7 +7,7 @@ const Slider = ({ content }) => {
 	return (
 		<div>
 			<Rerousel itemRef={customerLogo} interval={2500}>
-				{content.map((item, i) => {
+				{content?.map((item, i) => {
 					return (
 						<UpdatesCard
 							refs={i == 0 ? customerLogo : null}

@@ -55,7 +55,7 @@ export default function Home({ serverContent }) {
 					<div></div>
 				</section>
 				<section className={styles.home_updates}>
-					<Slider content={updates.reports} />
+					<Slider content={updates?.reports} />
 				</section>
 				{/* Goals Section */}
 				<section className={styles.home_goals}>
@@ -97,6 +97,7 @@ export default function Home({ serverContent }) {
 		</>
 	);
 }
+
 export async function getServerSideProps(ctx) {
 	const jwt =
 		parseCookies(ctx).jwt !== undefined ? parseCookies(ctx.jwt) : null;
@@ -112,7 +113,7 @@ export async function getServerSideProps(ctx) {
 	return {
 		props: {
 			// jwt: jwt,
-			serverContent: data,
+			serverContent: data || {},
 		},
 	};
 }

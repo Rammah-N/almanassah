@@ -72,16 +72,16 @@ const Layout = ({ children }) => {
 					<div className={footerStyles.links}>
 						<h3>{t.common.footer.linksTitle}</h3>
 						<Link href="/">
-							<a>{t.common.footer.links[0]}</a>
+							<span>{t.common.footer.links[0]}</span>
 						</Link>
 						<Link href="/about">
-							<a>{t.common.footer.links[1]}</a>
+							<span>{t.common.footer.links[1]}</span>
 						</Link>
 						<Link href="/dataforchange">
-							<a>{t.common.footer.links[2]}</a>
+							<span>{t.common.footer.links[2]}</span>
 						</Link>
 						<Link href="/reports">
-							<a>{t.common.footer.links[3]}</a>
+							<span>{t.common.footer.links[3]}</span>
 						</Link>
 					</div>
 				</div>

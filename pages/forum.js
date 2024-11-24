@@ -1,8 +1,8 @@
 import styles from "../styles/Forum.module.scss";
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import Button from "../components/Button";
 import Link from "next/link";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import { ar } from "../locales/ar";
 import { en } from "../locales/en";
 import axios from "axios";
@@ -23,16 +23,16 @@ const Forum = ({ serverContent }) => {
 				<section className={styles.hero}>
 					<p>{t.fwm.heroDescription}</p>
 					<div className={styles.hero_logo}>
-						{router.locale === "ar" ? (
+						{/* {router.locale === "ar" ? (
 							<Image
 								width="250"
 								height="250"
-								src={`${process.env.NEXT_PUBLIC_API_URL}${header.image.url}`}
+								src={`${process.env.NEXT_PUBLIC_API_URL}${header?.image?.url}`}
 								alt="Logo"
 							/>
 						) : (
 							<Image width="350" height="350" src={fwmLogoEn} alt="Logo" />
-						)}
+						)} */}
 					</div>
 				</section>
 				<section className={styles.intro}>
@@ -57,16 +57,16 @@ const Forum = ({ serverContent }) => {
 					</div>
 				</section>
 				<section className={styles.role}>
-					{router.locale === "ar" ? (
+					{/* {router.locale === "ar" ? (
 						<Image
-							src={`${process.env.NEXT_PUBLIC_API_URL}${role.image.url}`}
+							src={`${process.env.NEXT_PUBLIC_API_URL}${role?.image?.url}`}
 							height="380"
 							width="350"
 							alt="Roles of FWG"
 						/>
 					) : (
 						<Image src={roleEn} height="380" width="350" alt="Roles of FWG" />
-					)}
+					)} */}
 					<div className={styles.role_info}>
 						<div className={styles.heading}>
 							<h1>{t.fwm.role}</h1>
@@ -99,7 +99,7 @@ export async function getServerSideProps(ctx) {
 	return {
 		props: {
 			// jwt: jwt,
-			serverContent: data,
+			serverContent: data || {},
 		},
 	};
 }

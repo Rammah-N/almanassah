@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/dist/client/image";
-import Link from "next/dist/client/link";
+import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/SpaceComponent.module.scss";
 const Space = ({ title, description, link, img, flip, map, reserveLink }) => {
 	return (

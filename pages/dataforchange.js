@@ -1,6 +1,6 @@
 import styles from "../styles/DFC.module.scss";
 import Link from "next/link";
-import Image from "next/dist/client/image";
+import Image from "next/image";
 import { parseCookies } from "nookies";
 import { useEffect } from "react";
 import Button from "../components/Button";
@@ -17,9 +17,7 @@ const DataForChange = ({ jwt }) => {
 	const router = useRouter();
 	const locale = router.locale;
 	const t = locale === "ar" ? ar : en;
-	axios.get("https://admin.almanassah-sd.org/dfc").then((res) => {
-		console.log(res);
-	});
+	
 	return (
 		<>
 			<Head>
